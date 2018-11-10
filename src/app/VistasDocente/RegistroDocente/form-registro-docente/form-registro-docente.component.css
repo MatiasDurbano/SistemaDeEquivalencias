@@ -1,0 +1,34 @@
+:host {
+	flex-glow: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	background-image: linear-gradient(#0066ff, #cc00cc);
+	
+}
+
+div.input {
+	position: relative;
+}
+
+div.input label {
+	position: absolute;
+	top: 0;
+	font-size: 2vw;
+	transform: translateY(-50%);
+	left: 10px;
+	background: #e0e0d1;
+	padding: 5px 2px
+	
+}
+
+div.input input{
+	padding: 10px 20px;
+	font-size: 25px;
+	outline: 0;
+	margin: 5px;
+	background: #e0e0d1;
+	border: 2px solid #e0e0d1;
+    border-radius: 5px;
+}

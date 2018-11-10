@@ -1,0 +1,54 @@
+<form (submit)="formEquivalencia($event)">
+<div class="selecciones">
+
+	<div class="seleccionUniversidad">
+		<label>Seleccione la universidad en la que cursó: </label> 
+		<select name="universidades">
+			<option>UTN</option>
+			<option>UBA</option>
+			<option>El salvador</option>
+		</select>
+	</div>
+
+	<div class="input">
+			<label>Ingrese la materia que cursó</label>
+			<input type="text">
+	</div>
+
+	<div class="SeleccionCarrera">
+		<label>Seleccione carrera: </label> 
+		<select name="Carrera">
+			<option>Licenciatura en sistemas</option>
+			<option>Profesorado de matemáticas</option>
+		</select>
+	</div>
+
+	<div class="seleccionMateria">
+		<label>Seleccione la materia con la que quiere la equivalencia: </label> 
+		<select name="materias">
+			<option>Programación 1</option>
+			<option>Cálculo para la computación</option>
+			<option>Matemática discreta</option>
+		</select>
+	</div>
+
+	<div class="imagenPlanEstudio">
+			<label>Ingrese imagen del plan de estudio de la materia: </label> 
+			<br />
+			<input name="file-input" id="file-input" type="file" />
+   			<br />
+   			<img id="imgSalida" width="50%" height="50%" src="" style=display:none;/>
+	</div>
+
+	<div>
+	<input type="submit" value="Agregar solicitud de equivalencia de materia" >
+	</div>
+
+</div>
+
+</form>
+<div>
+<app-tabla-materia-equivalencia ></app-tabla-materia-equivalencia>
+</div>
+
+

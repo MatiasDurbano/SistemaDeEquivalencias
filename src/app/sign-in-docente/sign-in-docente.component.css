@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+}
+
+.example-form {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.boton {
+    padding-left: 50%;
+}
+
+.titulo {
+    padding-bottom: 30px;
+    padding-left: 170px;
+    color: #1c1aa1;
+    font-weight: normal;
+    font-size: 11px;
+    font-family: Arial;
+    text-transform: uppercase;
+    text-align: center;
+   }

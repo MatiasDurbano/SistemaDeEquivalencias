@@ -1,0 +1,60 @@
+<form [formGroup]="formAsignaturaEquivalente">
+  <div class="fila">
+    <mat-form-field class="campo">
+      <input matInput placeholder="Asignatura Propuesta" formControlName="nombre">
+    </mat-form-field>
+  </div>
+  <div class="fila">
+    <mat-form-field class="campo">
+      <input matInput placeholder="Instituto de Origen" formControlName="institutoOrigen">
+    </mat-form-field>
+  </div>
+  <div class="fila">
+    <div class="contenidoFilaIzq">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Año de aprobacion" formControlName="anoAprobacion">
+        <mat-error *ngIf="!formAsignaturaEquivalente.get('anoAprobacion').hasError('required') && !formAsignaturaEquivalente.get('anoAprobacion').hasError('1')">
+          Por favor, ingrese unicamente <strong>numeros</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="contenidoFilaDer">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Carga Horaria" formControlName="cargaHoraria">
+        <mat-error *ngIf="!formAsignaturaEquivalente.get('cargaHoraria').hasError('required') && !formAsignaturaEquivalente.get('cargaHoraria').hasError('1')">
+          Por favor, ingrese unicamente <strong>numeros</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+<div class="boton">
+  <div class="izq">
+    <button mat-fab color="primary" (click)="agregarAsignaturaEquvalente()" [disabled]="!formAsignaturaEquivalente.valid"><mat-icon class="probar">add</mat-icon></button>
+  </div>
+  <div>
+    <button mat-fab color="warn" (click)="borrarAsignaturaEquvalente()" [disabled]="tablaAsignaturaEquivalente.estaVacio()"><mat-icon class="probar">remove</mat-icon></button>
+  </div>
+</div>
+<div class="tabla">
+  <app-tabla-asignatura-equivalente></app-tabla-asignatura-equivalente>
+</div>
+<form [formGroup]="formAsignaturaUNGS">
+  <div class="fila">
+    <mat-form-field class="campo">
+      <input matInput placeholder="Asignatura UNGS" formControlName="nombre">
+    </mat-form-field>
+  </div>
+  <div class="boton">
+    <div class="izq">
+      <button mat-raised-button color="primary" (click)="agregarAsignaturaUNGS()" [disabled]="!formAsignaturaUNGS.valid ||
+      tablaAsignaturaEquivalente.estaVacio()">Agregar solicitud</button>
+    </div>
+    <div>
+      <button mat-raised-button color="warn" (click)="borrarAsignaturaUNGS()" [disabled]="tablaAsignaturaUNGS.estaVacio()">Borrar solicitud</button>
+    </div>
+  </div>
+</form>
+<div class="tabla">
+  <app-tabla-asignatura-ungs></app-tabla-asignatura-ungs>
+</div>

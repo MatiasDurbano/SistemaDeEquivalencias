@@ -1,0 +1,65 @@
+<div class="contenedor">
+<form class="example-form">
+    <table class="example-full-width" cellspacing="30"><tr>
+      <td><mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombres" [(ngModel)]="nombre" [formControl]="nombreFormControl">
+          <mat-error *ngIf="nombreFormControl.hasError('required')">
+            El nombre es <strong>requerido</strong>
+          </mat-error>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <input matInput placeholder="Apellidos" [(ngModel)]="apellido" [formControl]="apellidoFormControl">
+          <mat-error *ngIf="apellidoFormControl.hasError('required')">
+            El apellido es <strong>requerido</strong>
+          </mat-error>
+      </mat-form-field></td>
+    </tr></table>
+            
+                <table class="example-full-width" cellspacing="30"><tr>
+                  <td><mat-form-field class="example-full-width">
+                    <mat-select placeholder="Tipo de documento">
+                      <mat-option *ngFor="let selector of tipoDocumento" [value]="selector.value">
+                        {{selector.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field></td>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Numero" [(ngModel)]="numero" [formControl]="numeroFormControl">
+                    <mat-error *ngIf="numeroFormControl.hasError('pattern') && !numeroFormControl.hasError('required')">
+                      Por favor, ingrese un numero valido
+                    </mat-error>
+                    <mat-error *ngIf="numeroFormControl.hasError('required')">
+                      El mail es <strong>requerido</strong>
+                    </mat-error>
+                  </mat-form-field></td>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Legajo" [(ngModel)]="legajo" [formControl]="legajoFormControl">
+                    <mat-error *ngIf="legajoFormControl.hasError('required')">
+                      El legajo es <strong>requerido</strong>
+                    </mat-error>
+                  </mat-form-field></td>
+                </tr></table>
+            
+                <table class="example-full-width" cellspacing="30"><tr>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Telefono" [(ngModel)]="telefono" [formControl]="telefonoFormControl">
+                    <mat-error *ngIf="telefonoFormControl.hasError('required')">
+                      El telefono es <strong>requerido</strong>
+                    </mat-error>
+                  </mat-form-field></td>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput placeholder="Email" [(ngModel)]="email" [formControl]="emailFormControl">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Por favor, ingrese un mail valido
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                    El mail es <strong>requerido</strong>
+                    </mat-error>
+                  </mat-form-field></td>
+                </tr></table>
+            
+                <table class="example-full-width" cellspacing="30"><tr>
+                  <td><app-carreras-ungs></app-carreras-ungs></td>
+                </tr></table>
+              </form>
+            </div>

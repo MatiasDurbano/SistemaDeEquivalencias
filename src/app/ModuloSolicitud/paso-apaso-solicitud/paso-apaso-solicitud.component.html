@@ -1,0 +1,44 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="formularioAlumno.formAlumno">
+    <ng-template matStepLabel>Primer Formulario</ng-template>
+    <div class="contenedor">
+      <div>
+        <app-formulario-alumno></app-formulario-alumno>
+      </div>
+      <div class="botonSiguiente">
+        <button mat-raised-button color="primary" matStepperNext>Siguiente</button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="false">
+    <ng-template matStepLabel>Segundo Formulario</ng-template>
+    <div class="contenedor">
+      <div>
+        <app-formulario-equivalencia></app-formulario-equivalencia>
+      </div>
+      <div class="contenedorBoton">
+        <div class="botonAtras">
+          <button mat-raised-button color="warn" matStepperPrevious>Atras</button>
+        </div>
+        <div class="botonSiguiente">
+          <button mat-raised-button color="primary" matStepperNext [disabled]="formularioEquivalencia.tablaAsignaturaUNGSEstaVacio()">Siguiente</button>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Confirmacion</ng-template>
+    <div class="centrar">
+      <h2> SE INICIARA LA SOLICITUD DE TRAMITE <br> --------- ¿ CONFIRMA SUS DATOS ? --------- </h2>
+    </div>
+    <div class="final">
+      <div class="izq">
+        <button matStepperPrevious mat-fab color="warn" class="probar"><mat-icon class="probar">reply</mat-icon></button>
+      </div>
+      <!-- <button mat-button (click)="stepper.reset()">Inicio</button> -->
+      <div>
+        <button mat-fab color="primary" (click)="generarSolicitud()"><mat-icon >thumb_up_alt</mat-icon></button>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

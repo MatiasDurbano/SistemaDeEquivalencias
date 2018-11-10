@@ -1,0 +1,16 @@
+<form (submit)="agregarMateria($event)">
+	<div class="seleccionMateria">
+		<label>Seleccione la materia con la que quiere la equivalencia: </label> 
+		<select name="materias">
+			<option>Programación 1</option>
+			<option>Cálculo para la computación</option>
+			<option>Matemática discreta</option>
+		</select>
+	</div>
+	<div>
+		<input type="submit" value="Agregar materia" >
+	</div>
+</form>
+<div>
+<app-tabla-materias-docente></app-tabla-materias-docente>
+</div>

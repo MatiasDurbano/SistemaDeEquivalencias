@@ -1,0 +1,48 @@
+  <div class="contenedor">
+  <div class="separar">
+    <mat-form-field class="inputs">
+      <input matInput placeholder="Instituto de Origen"
+      name="institutOrigen" [(ngModel)]="institutOrigen">
+    </mat-form-field>
+  </div>
+  <div class="separar">
+    <mat-form-field class="inputs">
+      <input matInput placeholder="Año de aprobacion"
+      name="anoAprobacion" [(ngModel)]="anoAprobacion">
+    </mat-form-field>
+  </div>
+  <div class="separar">
+    <mat-form-field class="inputs">
+      <input matInput placeholder="Asignatura propuesta"
+      name="asignaturaPropuesta" [(ngModel)]="asignaturaPropuesta">
+    </mat-form-field>
+  </div>
+  <div class="boton">
+    <div class="izq">
+        <button mat-fab color="primary" (click)="anadir()">Añadir</button>
+    </div>
+    <div class="der">
+        <button mat-fab color="warn" (click)="borrar()">Borrar</button>
+    </div>
+  </div>
+  <div class="separar">
+    <app-propuestas-solicitud-equivalencia></app-propuestas-solicitud-equivalencia>
+  </div>
+  <div class="separar">
+    <mat-form-field class="inputs">
+      <input matInput placeholder="Asignatura de la UNGS por la que solicita equivalencia"
+      name="asignaturaUNGS" [(ngModel)]="this.asignaturaUNGS">
+    </mat-form-field>
+  </div>
+  <div class="boton">
+    <div class="izq">
+      <button mat-raised-button color="primary" (click)="agregarSolicitud()">Agregar Solicitud</button>
+    </div>
+    <div class="der">
+        <button mat-raised-button color="warn" (click)="borrarSolicitud()">Borrar Solicitud</button>
+    </div>
+  </div>
+  <div class="separar">
+    <app-tabla-solicitud-equivalencia></app-tabla-solicitud-equivalencia>
+  </div>
+</div>

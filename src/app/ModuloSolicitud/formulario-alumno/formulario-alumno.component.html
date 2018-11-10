@@ -1,0 +1,79 @@
+<form [formGroup]="formAlumno">
+  <div class="fila">
+    <div class="contenidoFilaIzq">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Nombres" formControlName="nombres" required>
+        <mat-error *ngIf="formAlumno.get('nombres').hasError('required')">
+          Los <strong>nombres</strong> son necesarios
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="contenidoFilaDer">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Apellidos" formControlName="apellidos" required>
+        <mat-error *ngIf="formAlumno.get('apellidos').hasError('required')">
+          Los <strong>apellidos</strong> son necesarios
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fila">
+    <div class="contenidoFilaIzq">
+      <mat-form-field class="campo">
+        <input matInput placeholder="DNI" formControlName="dni" required>
+        <mat-error *ngIf="formAlumno.get('dni').hasError('required')">
+          El <strong>DNI</strong> es necesario
+        </mat-error>
+        <mat-error *ngIf="!formAlumno.get('dni').hasError('required') && !formAlumno.get('dni').hasError('1')">
+          Por favor, ingrese unicamente <strong>numeros</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="contenidoFilaDer">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Legajo" formControlName="legajo" required>
+        <mat-error *ngIf="formAlumno.get('legajo').hasError('required')">
+          El <strong>legajo</strong> es necesario
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fila">
+    <div class="contenidoFilaIzq">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Telefono" formControlName="telefono" required>
+        <mat-error *ngIf="formAlumno.get('telefono').hasError('required')">
+          El <strong>telefono</strong> es necesario
+        </mat-error>
+        <mat-error *ngIf="!formAlumno.get('telefono').hasError('required') && !formAlumno.get('telefono').hasError('1')">
+          Por favor, ingrese unicamente <strong>numeros</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="contenidoFilaDer">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error *ngIf="formAlumno.get('email').hasError('required')">
+          El <strong>email</strong> es necesario
+        </mat-error>
+        <mat-error *ngIf="!formAlumno.get('email').hasError('required') && formAlumno.get('email').hasError('email')">
+          Por favor, ingrese un <strong>email</strong> valido
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="fila">
+    <mat-form-field class="campo">
+      <mat-select placeholder="Carrera" formControlName="carrera">
+        <mat-optgroup *ngFor="let group of institutosUNGS" [label]="group.nombre">
+          <mat-option *ngFor="let carrera of group.carreras" [value]="carrera">
+            {{carrera}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-select>
+      <mat-error *ngIf="formAlumno.get('carrera').hasError('required')">
+        Por favor, seleccione una <strong>carrera</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+</form>

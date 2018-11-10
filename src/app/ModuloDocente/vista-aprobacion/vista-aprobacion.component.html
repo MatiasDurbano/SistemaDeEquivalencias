@@ -1,0 +1,63 @@
+<div>
+  <h2>Alumno</h2>
+</div>
+<div>
+  <label>Nombre: {{solicitud.alumno.nombre}}</label>
+</div>
+<div>
+  <label>Apellido: {{solicitud.alumno.nombre}}</label>
+</div>
+<div>
+  <label>Email: {{solicitud.alumno.email}}</label>
+</div>
+<div>
+  <label>Carrera: {{solicitud.alumno.carrera}}</label>
+</div>
+<div>
+  <h2>Asignaturas propuestas:</h2>
+</div>
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> <h3>Asignatura Propuesta</h3> </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="institutoOrigen">
+      <th mat-header-cell *matHeaderCellDef> <h3>Institucion de Origen</h3> </th>
+      <td mat-cell *matCellDef="let element"> {{element.institutoOrigen}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="anoAprobacion">
+      <th mat-header-cell *matHeaderCellDef> <h3>Año de Aprobacion</h3> </th>
+      <td mat-cell *matCellDef="let element"> {{element.anoAprobacion}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="cargaHoraria">
+      <th mat-header-cell *matHeaderCellDef> <h3>Carga Horaria</h3> </th>
+      <td mat-cell *matCellDef="let element"> {{element.cargaHoraria}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div>
+  <mat-form-field>
+    <mat-select placeholder="Decision" [formControl]="aprobacion" required>
+      <mat-option *ngFor="let opcion of opciones" [value]="opcion.value">
+        {{opcion.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field>
+    <textarea matInput placeholder="Razon de su decision" [formControl]="razon"></textarea>
+    <mat-hint>Si se aprueba, no es necesario escribir una razon</mat-hint>
+  </mat-form-field>
+</div>
+<div>
+  <button mat-raised-button color="primary" (click)="comprobar()" [disabled]="aprobacion.invalid">Confirmar</button>
+</div>

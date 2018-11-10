@@ -1,0 +1,30 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.sidenav{
+		display: none;
+}
+
+.links{
+	flex: 1 1 auto;
+}
+mat-toolbar a{
+	display: inline-block;
+	margin: 0 30px;
+	color: white;
+	text-decoration: none;
+	text-align: middle;
+}
+
+mat-icon{
+	
+	display: inline-block;
+	vertical-align: middle;
+}
+

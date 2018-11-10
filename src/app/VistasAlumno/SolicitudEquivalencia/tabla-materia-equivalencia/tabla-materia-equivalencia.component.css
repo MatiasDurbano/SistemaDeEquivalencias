@@ -1,0 +1,15 @@
+.tablaMateria td{
+	margin: 0px auto;
+	width: 25%;
+}
+
+.mat-elevation-z8{
+	background-color: blue;
+}
+
+mat-icon{
+	display: inline-block;
+	vertical-align: middle;
+	width: 40px;
+}
+

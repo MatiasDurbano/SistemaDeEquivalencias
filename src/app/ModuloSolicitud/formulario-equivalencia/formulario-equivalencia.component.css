@@ -1,0 +1,33 @@
+.campo {
+    width: 100%;
+}
+
+.fila {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 25px;
+}
+
+.contenidoFilaIzq {
+    width: 100%;
+    margin-right: 25px;
+}
+
+.contenidoFilaDer {
+    width: 100%;
+    margin-left: 25px;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
+}
+
+.izq {
+    padding-right: 10%;
+}
+
+.tabla {
+    padding-bottom: 25px;
+}

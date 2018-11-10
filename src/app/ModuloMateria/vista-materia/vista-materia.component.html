@@ -1,0 +1,33 @@
+
+<div class="selectCarrera">
+  <mat-form-field class="campo">
+    <mat-select placeholder="Carrera">
+        <mat-option *ngFor="let Carrera of listCarreras" [value]="nombre">
+          {{Carrera.nombre}}
+        </mat-option> 
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<form [formGroup]="formCarrera">
+    
+  <div class="formMateria">
+        <mat-form-field class="nombre">
+          <input matInput placeholder="Nombre de carrera" formControlName="nombre" required>
+          <mat-error *ngIf="formCarrera.get('nombre').hasError('required')">
+            Los <strong>nombre</strong> son necesarios
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="horas">
+            <input matInput placeholder="Hora de la carrera" formControlName="horas" required>
+            <mat-error *ngIf="formCarrera.get('horas').hasError('required')">
+              Las <strong>hora</strong> son necesarios
+            </mat-error>
+        </mat-form-field>
+  </div>
+  <div>
+  <button mat-flat-button color="primary">Agregar</button>
+</div>
+</form>
+
+<app-tabla-materias></app-tabla-materias>

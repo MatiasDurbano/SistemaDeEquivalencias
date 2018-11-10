@@ -1,0 +1,29 @@
+.tabla-docente td{
+	width: 25%;
+	margin: 0px auto;
+}
+
+.mat-elevation-z8{
+	background-color: blue;
+}
+
+mat-icon{
+	width: 40px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+button{
+	background: #2A5AA7;
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+	vertical-align: middle;
+	text-align: middle;
+
+}

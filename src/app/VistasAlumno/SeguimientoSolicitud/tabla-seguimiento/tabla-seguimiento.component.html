@@ -1,0 +1,51 @@
+
+
+<div class="mat-elevation-z8 tablaSeguimiento">
+  <table mat-table  #table [dataSource]="dataSource" matSort aria-label="Elements"  WIDTH="100%">
+    
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let row">{{row.nombre}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+      <td mat-cell *matCellDef="let row">{{row.apellido}}</td>
+    </ng-container>
+
+    <!-- materia Column -->
+    <ng-container matColumnDef="materia">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Materia</th>
+      <td mat-cell *matCellDef="let row">{{row.materia}}</td>
+    </ng-container>
+
+    <!-- estado Column -->
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+      <td mat-cell *matCellDef="let row">{{row.estado}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="profesor">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Profesor que evaluó</th>
+      <td mat-cell *matCellDef="let row">{{row.profesor}}</td>
+    </ng-container>
+
+    <!-- detalles -->
+    <ng-container matColumnDef="boton">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Detalles</th>
+      <td mat-cell *matCellDef="let row">
+        <button type="button"><mat-icon >assignment_ind</mat-icon>Ver detalles</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>

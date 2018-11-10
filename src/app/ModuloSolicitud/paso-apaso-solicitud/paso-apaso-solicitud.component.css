@@ -1,0 +1,35 @@
+.contenedor {
+    width: 80%;
+    padding-left: 8%;
+    padding-top: 3%;
+}
+
+.contenedorBoton {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.botonSiguiente {
+    float: right;
+}
+
+.botonAtras {
+    float: left;
+}
+
+
+.centrar {
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.final {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.izq {
+    padding-right: 100px;
+}
