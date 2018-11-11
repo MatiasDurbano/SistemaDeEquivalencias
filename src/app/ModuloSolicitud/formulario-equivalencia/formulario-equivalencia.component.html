@@ -27,10 +27,13 @@
       </mat-form-field>
     </div>
   </div>
+  <div class="fila">
+    <input type="file" (change)="leerArchivo($event)" accept=".pdf">
+  </div>
 </form>
 <div class="boton">
   <div class="izq">
-    <button mat-fab color="primary" (click)="agregarAsignaturaEquvalente()" [disabled]="!formAsignaturaEquivalente.valid"><mat-icon class="probar">add</mat-icon></button>
+    <button mat-fab color="primary" (click)="agregarAsignaturaEquvalente()" [disabled]="!formAsignaturaEquivalente.valid || documentacion === null"><mat-icon class="probar">add</mat-icon></button>
   </div>
   <div>
     <button mat-fab color="warn" (click)="borrarAsignaturaEquvalente()" [disabled]="tablaAsignaturaEquivalente.estaVacio()"><mat-icon class="probar">remove</mat-icon></button>

@@ -25,19 +25,22 @@ export class VistaAprobacionComponent implements OnInit {
     '39071820/2014',
     1150290821,
     'maxi.pompilio@gmail.com',
-    'Licenciatura en Sistema'
+    'Licenciatura en Sistema',
+    null
   );
   sor: AsignaturaEquivalente = new AsignaturaEquivalente(
     'Sistemas Operativos',
     'UTN',
     2005,
-    128
+    128,
+    'hola'
   );
   redes: AsignaturaEquivalente = new AsignaturaEquivalente(
     'Redes de la Informacion',
     'UTN',
     2005,
-    128
+    128,
+    'hola'
   );
   sistemaOperativosII: AsignaturaUNGS = new AsignaturaUNGS(
     'Sistemas Operativos II',

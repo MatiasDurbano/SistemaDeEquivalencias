@@ -76,6 +76,9 @@
       </mat-error>
     </mat-form-field>
   </div>
+  <div class="fila">
+    <input type="file" (change)="leerArchivo($event)" accept=".pdf">
+  </div>
   <div>
     <re-captcha 
       (resolved)="resolved($event)"

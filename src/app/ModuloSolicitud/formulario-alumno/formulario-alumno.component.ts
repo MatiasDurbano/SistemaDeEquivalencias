@@ -12,8 +12,8 @@ import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 })
 export class FormularioAlumnoComponent implements OnInit {
 
-  cap:string;
-  
+  cap: string;
+
   formAlumno: FormGroup = new FormGroup({
     nombres: new FormControl('', Validators.required),
     apellidos: new FormControl('', Validators.required),
@@ -22,17 +22,18 @@ export class FormularioAlumnoComponent implements OnInit {
     telefono: new FormControl('', [ Validators.required, Validators.pattern('[0-9]*') ]),
     email: new FormControl('', [ Validators.required, Validators.email ]),
     carrera: new FormControl('', Validators.required),
-    recaptcha:new FormControl(null, Validators.required),
+    recaptcha: new FormControl(null, Validators.required),
   });
+  documentacion: string = null;
 
   institutosUNGS: Array<InsitutoUNGS>;
 
-  constructor(private serviceSolicitud: SolicitudService) { 
+  constructor(private serviceSolicitud: SolicitudService) {
     this.serviceSolicitud.solicitarCarreras().subscribe(
-      Response=>{
-        this.institutosUNGS=Response;
+      Response => {
+        this.institutosUNGS = Response;
       });
-
+    // this.institutosUNGS = [{nombre: 'IDEI', carreras: ['Licenciatura en Sistemas']}];
   }
 
   ngOnInit() {
@@ -46,7 +47,8 @@ export class FormularioAlumnoComponent implements OnInit {
       this.formAlumno.get('legajo').value,
       this.formAlumno.get('telefono').value,
       this.formAlumno.get('email').value,
-      this.formAlumno.get('carrera').value
+      this.formAlumno.get('carrera').value,
+      this.documentacion
     );
     console.log(ret.saludar());
     return ret;
@@ -56,10 +58,23 @@ export class FormularioAlumnoComponent implements OnInit {
     console.log(this.generarAlumno().saludar());
   }
 
+  leerArchivo(evt: any) {
+    const file = evt.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.obtenerArchivoValor.bind(this);
+      reader.readAsDataURL(file);
+    }
+  }
+
+  obtenerArchivoValor(e) {
+    this.documentacion = e.target.result;
+  }
+
   public resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
-    this.cap=captchaResponse;
-    this.formAlumno.get("recaptcha").setValue(this.cap);
+    this.cap = captchaResponse;
+    this.formAlumno.get('recaptcha').setValue(this.cap);
   }
 
 }

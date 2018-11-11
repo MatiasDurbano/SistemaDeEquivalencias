@@ -18,10 +18,9 @@ export class FormMateriaDocenteComponent implements OnInit {
   ngOnInit() {
   }
 
-  agregarMateria(e){
-  	e.preventDefault();
-  	this.tablaMateria.addElement(e.target.elements[0].value);
-
+  agregarMateria(e) {
+  e.preventDefault();
+  this.tablaMateria.addElement(e.target.elements[0].value);
   }
 
 }
