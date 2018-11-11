@@ -22,6 +22,8 @@ export class FormularioEquivalenciaComponent implements OnInit {
     cargaHoraria: new FormControl('', [ Validators.required, Validators.pattern('[0-9]*') ])
   });
 
+  documentacion: string = null;
+
   formAsignaturaUNGS: FormGroup = new FormGroup({
     nombre: new FormControl('', Validators.required),
   });
@@ -37,7 +39,9 @@ export class FormularioEquivalenciaComponent implements OnInit {
       this.formAsignaturaEquivalente.get('institutoOrigen').value,
       this.formAsignaturaEquivalente.get('anoAprobacion').value,
       this.formAsignaturaEquivalente.get('cargaHoraria').value,
+      this.documentacion
     );
+    console.log(ret.saludar());
     return ret;
   }
 
@@ -73,6 +77,19 @@ export class FormularioEquivalenciaComponent implements OnInit {
 
   saludar() {
     console.log(this.generarAsignaturaEquivalente().saludar());
+  }
+
+  leerArchivo(evt: any) {
+    const file = evt.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.obtenerArchivoValor.bind(this);
+      reader.readAsDataURL(file);
+    }
+  }
+
+  obtenerArchivoValor(e) {
+    this.documentacion = e.target.result;
   }
 
 }
