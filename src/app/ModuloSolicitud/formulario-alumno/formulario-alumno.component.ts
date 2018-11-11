@@ -25,6 +25,7 @@ export class FormularioAlumnoComponent implements OnInit {
     recaptcha: new FormControl(null, Validators.required),
   });
   documentacion: string = null;
+  analitico: string = null;
 
   institutosUNGS: Array<InsitutoUNGS>;
 
@@ -48,7 +49,8 @@ export class FormularioAlumnoComponent implements OnInit {
       this.formAlumno.get('telefono').value,
       this.formAlumno.get('email').value,
       this.formAlumno.get('carrera').value,
-      this.documentacion
+      this.documentacion,
+      this.analitico
     );
     console.log(ret.saludar());
     return ret;
@@ -58,17 +60,30 @@ export class FormularioAlumnoComponent implements OnInit {
     console.log(this.generarAlumno().saludar());
   }
 
-  leerArchivo(evt: any) {
+  leerArchivoDocumentacion(evt: any) {
     const file = evt.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = this.obtenerArchivoValor.bind(this);
+      reader.onload = this.obtenerArchivoDocumentacionValor.bind(this);
       reader.readAsDataURL(file);
     }
   }
 
-  obtenerArchivoValor(e) {
+  obtenerArchivoDocumentacionValor(e) {
     this.documentacion = e.target.result;
+  }
+
+  leerArchivoAnalitico(evt: any) {
+    const file = evt.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.obtenerArchivoAnaliticoValor.bind(this);
+      reader.readAsDataURL(file);
+    }
+  }
+
+  obtenerArchivoAnaliticoValor(e) {
+    this.analitico = e.target.result;
   }
 
   public resolved(captchaResponse: string) {

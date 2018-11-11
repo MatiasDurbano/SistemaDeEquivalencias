@@ -26,6 +26,7 @@ export class VistaAprobacionComponent implements OnInit {
     1150290821,
     'maxi.pompilio@gmail.com',
     'Licenciatura en Sistema',
+    null,
     null
   );
   sor: AsignaturaEquivalente = new AsignaturaEquivalente(

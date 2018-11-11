@@ -7,9 +7,11 @@ export class Alumno {
     email: string;
     carrera: string;
     documentacion: string;
+    analitico: string;
 
     constructor(nombres: string, apellidos: string, dni: number, legajo: string,
-        telefono: number, email: string, carrera: string, documentacion: string) {
+        telefono: number, email: string, carrera: string, documentacion: string,
+        analitico: string) {
             this.nombre = nombres;
             this.apellido = apellidos;
             this.dni = dni;
@@ -18,6 +20,7 @@ export class Alumno {
             this.email = email;
             this.carrera = carrera;
             this.documentacion = documentacion;
+            this.analitico = analitico;
     }
 
     saludar(): string {
@@ -28,6 +31,7 @@ export class Alumno {
          telefono: ${this.telefono},
          email: ${this.email},
          carrera: ${this.carrera}
-         documentacion: ${this.documentacion}`;
+         documentacion: ${this.documentacion},
+         analitico: ${this.analitico}`;
     }
 }

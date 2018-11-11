@@ -77,7 +77,10 @@
     </mat-form-field>
   </div>
   <div class="fila">
-    <input type="file" (change)="leerArchivo($event)" accept=".pdf">
+    <input type="file" (change)="leerArchivoDocumentacion($event)" accept=".pdf">
+  </div>
+  <div class="fila">
+    <input type="file" (change)="leerArchivoAnalitico($event)" accept=".pdf">
   </div>
   <div>
     <re-captcha 
