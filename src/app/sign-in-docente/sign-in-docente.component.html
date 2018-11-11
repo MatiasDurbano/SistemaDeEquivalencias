@@ -39,6 +39,17 @@
                   </mat-form-field>
                 </td>
               </tr>
+              <tr>
+                <td>
+                  <mat-form-field class="campo">
+                    <mat-select placeholder="instituto" (selectionChange)="cargar($event.value)">
+                        <mat-option *ngFor="let instituto of Institutos" [value]="instituto.id" >
+                          {{instituto.nombre}}
+                        </mat-option> 
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
           </table>
         </form>
       </mat-card-content>

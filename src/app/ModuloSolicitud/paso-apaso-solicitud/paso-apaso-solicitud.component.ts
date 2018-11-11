@@ -29,10 +29,15 @@ export class PasoAPasoSolicitudComponent implements OnInit {
 
     this.serviceSolicitud.registrarSolicitud(ret).subscribe(
       Response => {
-          const respuesta: String = Response;
-          console.log(respuesta);
-      });
-    console.log(ret);
+        const respuesta: String = Response;
+        if(respuesta=="0"){
+         alert("ya existe solicitudes para ese numero de legajo") 
+        }
+        else{
+          alert("Codigo de segumiento: "+ respuesta) 
+          
+        }
+      })
     return ret;
   }
 

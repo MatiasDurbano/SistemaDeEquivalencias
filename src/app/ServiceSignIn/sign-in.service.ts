@@ -14,4 +14,8 @@ export class SignInService {
 {
   return this.http.post('/registroDocente',userData);
 }
+cargarInstitutos(): Observable<any>
+{
+  return this.http.get('/institutos');
+}
 }

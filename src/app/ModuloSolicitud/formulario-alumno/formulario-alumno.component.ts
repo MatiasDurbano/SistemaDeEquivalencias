@@ -12,6 +12,8 @@ import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 })
 export class FormularioAlumnoComponent implements OnInit {
 
+  cap:string;
+  
   formAlumno: FormGroup = new FormGroup({
     nombres: new FormControl('', Validators.required),
     apellidos: new FormControl('', Validators.required),
@@ -20,6 +22,7 @@ export class FormularioAlumnoComponent implements OnInit {
     telefono: new FormControl('', [ Validators.required, Validators.pattern('[0-9]*') ]),
     email: new FormControl('', [ Validators.required, Validators.email ]),
     carrera: new FormControl('', Validators.required),
+    recaptcha:new FormControl(null, Validators.required),
   });
 
   institutosUNGS: Array<InsitutoUNGS>;
@@ -53,6 +56,10 @@ export class FormularioAlumnoComponent implements OnInit {
     console.log(this.generarAlumno().saludar());
   }
 
-
+  public resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response ${captchaResponse}:`);
+    this.cap=captchaResponse;
+    this.formAlumno.get("recaptcha").setValue(this.cap);
+  }
 
 }

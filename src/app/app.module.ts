@@ -37,11 +37,12 @@ import { PasoAPasoSolicitudComponent } from './ModuloSolicitud/paso-apaso-solici
 import { VistaMateriaComponent } from './ModuloMateria/vista-materia/vista-materia.component';
 import { TablaMateriasComponent } from './ModuloMateria/tabla-materias/tabla-materias.component';
 import { VistaAprobacionComponent } from './ModuloDocente/vista-aprobacion/vista-aprobacion.component';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 const routes: Routes = [
 {path: 'form-materia-docente', component: FormMateriaDocenteComponent},
 {path: 'sesion-docente', component: SesionDocenteComponent},
-{path: '', component: PasoApasoComponent},
+{path: '', component: PasoAPasoSolicitudComponent},
 {path: 'equivalencia-solicitadas', component: FormMateriaEquivalenciaComponent},
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
 {path: '11', component: SignInDocenteComponent},
@@ -100,6 +101,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatStepperModule,
+    RecaptchaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

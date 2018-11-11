@@ -35,25 +35,14 @@ export class LoginComponent implements OnInit {
           this.router.navigate(["sesion-docente"]);
          }
          if(this.userLogeado.tipo==0){
-          this.router.navigate(["seguimiento-solicitud"]);
-         }  
+          this.gotoInstituto(this.userLogeado);
+       }  
         },
       error=> console.log('error',error)
     );
+  }
 
-    /*
-    if (this.user.username == 'admin' && this.user.password == 'admin'){
-     this.router.navigate(["pasoApaso"]);
-    }
-    else if (this.user.username == 'pepe' && this.user.password == 'pepe'){
-      this.router.navigate(["sesion-docente"]);
-    }
-    else if (this.user.username == 'seguimiento' && this.user.password == 'seguimiento'){
-      this.router.navigate(["seguimiento-solicitud"]);
-    }
-    else {
-      alert("Invalid credentials");
-    }
-    */
+  gotoInstituto(user: userModelo) {
+    this.router.navigate(['/vista-add-materia/:instituto', { inst :user.instituto}]);
   }
 }

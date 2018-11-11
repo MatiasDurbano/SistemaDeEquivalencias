@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
-import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
-import { Materia } from 'src/app/model/Materia';
 import { Carrera } from 'src/app/model/Carrera';
 import { TablaMateriasComponent } from '../tabla-materias/tabla-materias.component';
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MateriaserviceService } from 'src/app/ServiceMateria/materiaservice.service';
+import { Instituto } from 'src/app/model/Instituto';
 
 
 @Component({
@@ -15,7 +15,8 @@ import { TablaMateriasComponent } from '../tabla-materias/tabla-materias.compone
 export class VistaMateriaComponent implements OnInit {
 
   @ViewChild(TablaMateriasComponent) tablaMateria: TablaMateriasComponent;
-  
+  instituto:Instituto
+
   formCarrera: FormGroup = new FormGroup({
     carrera: new FormControl('', Validators.required),
     nombre : new FormControl('', Validators.required),
@@ -36,10 +37,20 @@ export class VistaMateriaComponent implements OnInit {
       materias: [{horas: 2, nombre:'aaaaaa'},]
     }
   ]
+  Carreras:Array<Carrera> = new Array<Carrera>();
 
-  constructor(private serviceSolicitud: SolicitudService) { }
+  constructor(private materiaService: MateriaserviceService,
+    private route: ActivatedRoute,
+    private router: Router){}
 
-  ngOnInit() {
+  ngOnInit(){ 
+    this.route.params.subscribe(params => {
+    this.instituto=new Instituto(params['inst']);
+  });
+  this.materiaService.cargar(this.instituto).subscribe(
+    Response=>{
+      this.Carreras=Response;
+    })
+
   }
-
 }
