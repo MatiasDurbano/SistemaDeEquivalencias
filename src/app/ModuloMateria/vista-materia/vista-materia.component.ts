@@ -5,6 +5,8 @@ import { TablaMateriasComponent } from '../tabla-materias/tabla-materias.compone
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MateriaserviceService } from 'src/app/ServiceMateria/materiaservice.service';
 import { Instituto } from 'src/app/model/Instituto';
+import { Materia } from 'src/app/model/Materia';
+import { CarreraMateria } from 'src/app/model/CarreraMateria';
 
 
 @Component({
@@ -15,42 +17,86 @@ import { Instituto } from 'src/app/model/Instituto';
 export class VistaMateriaComponent implements OnInit {
 
   @ViewChild(TablaMateriasComponent) tablaMateria: TablaMateriasComponent;
-  instituto:Instituto
+  
+  indice: number=0;
+  indiceCarrera: number;
+
+  instituto: Instituto=new Instituto("");
+  prueba : string;
+  plan: string = null;
+  carreraMateria:CarreraMateria;
 
   formCarrera: FormGroup = new FormGroup({
     carrera: new FormControl('', Validators.required),
-    nombre : new FormControl('', Validators.required),
+    nombreMateria : new FormControl('', Validators.required),
     horas: new FormControl('', [ Validators.required, Validators.pattern('[0-9]*') ]),
+    plan: new FormControl(null, Validators.required),
   });
-    
-  listCarreras: Array<Carrera> =[
-    {
-      nombre :'aaaaaaa',
-      materias: [{horas: 2, nombre:'aaaaaa'},]
-    },
-    {
-      nombre :'bbbbbbb',
-      materias: [{horas: 2, nombre:'aaaaaa'},]
-    },
-    {
-      nombre :'ccccccc',
-      materias: [{horas: 2, nombre:'aaaaaa'},]
-    }
-  ]
+  
   Carreras:Array<Carrera> = new Array<Carrera>();
-
   constructor(private materiaService: MateriaserviceService,
     private route: ActivatedRoute,
     private router: Router){}
 
-  ngOnInit(){ 
+  ngOnInit() {
     this.route.params.subscribe(params => {
-    this.instituto=new Instituto(params['inst']);
-  });
-  this.materiaService.cargar(this.instituto).subscribe(
-    Response=>{
-      this.Carreras=Response;
-    })
+      this.instituto=new Instituto(params['inst']);
+    });
+    this.materiaService.cargar(this.instituto).subscribe(
+      Response=>{
+        this.Carreras=Response;
+      })
+  }
+  cargar(event: any){
+    this.limpiar();
+    this.tablaMateria.vaciar();
+    this.indice=0
+    for(let Carrera of this.Carreras){
+      
+      if(Carrera.carrera==event)
+        {
+         this.indiceCarrera=this.indice
+          this.tablaMateria.Cargar(Carrera.materias);
+        }
+      this.indice=this.indice+1
+      }
+  }
+  add(){
+    const materia: Materia = new Materia(
+      this.formCarrera.get('nombreMateria').value,
+      this.formCarrera.get('horas').value,
+      this.formCarrera.get('plan').value
+    );
+    this.Carreras[this.indiceCarrera].materias.push(materia);
+    this.tablaMateria.add(materia);
+    this.limpiar();
 
   }
+  guardar(){
+
+    this.carreraMateria=new CarreraMateria(this.instituto,this.Carreras);
+
+    this.materiaService.guardar(this.carreraMateria).subscribe(
+      Response=>{
+        console.log(Response);
+      });
+  }
+  limpiar (){
+    this.formCarrera.get('nombreMateria').setValue('');
+    this.formCarrera.get('horas').setValue('');
+    this.formCarrera.get('plan').setValue(null);
+  }
+
+  leerArchivoPlan(evt: any) {
+    const file = evt.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = this.obtenerArchivoPlan.bind(this);
+      reader.readAsDataURL(file);
+    }
+  }
+  obtenerArchivoPlan(e) {
+    this.plan = e.target.result;
+  }
+
 }

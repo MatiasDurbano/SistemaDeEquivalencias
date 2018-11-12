@@ -1,10 +1,10 @@
 import {Materia} from "./Materia"
 export class Carrera{
-    nombre:string
+    carrera:string
     public materias: Array<Materia>;
 
     constructor(carrera: string, list: Array<Materia>){
-        this.nombre=carrera;
+        this.carrera=carrera;
         this.materias=list;
 
     }

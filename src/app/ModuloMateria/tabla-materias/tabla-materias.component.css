@@ -1,3 +1,10 @@
 table {
-    width: 100%;
+    width:80%;
+    float: left;
+    padding-left: 20%;
+}
+.mat-elevation-z8{
+    float: left;
+    padding-left: 50px;
+
 }
