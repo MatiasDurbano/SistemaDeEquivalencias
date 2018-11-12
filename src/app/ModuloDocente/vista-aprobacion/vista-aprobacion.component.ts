@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { saveAs } from 'file-saver';
 
 export interface Aprobacion {
   value: string;
@@ -20,33 +20,33 @@ export interface Aprobacion {
 export class VistaAprobacionComponent implements OnInit {
 
   maxi: Alumno = new Alumno (
-    'Maximiliano',
-    'Pompilio',
-    39071820,
-    '39071820/2014',
-    1150290821,
-    'maxi.pompilio@gmail.com',
-    'Licenciatura en Sistema',
+    '',
+    '',
+    0,
+    '',
+    0,
+    '',
+    '',
     null,
     null
   );
   sor: AsignaturaEquivalente = new AsignaturaEquivalente(
-    'Sistemas Operativos',
-    'UTN',
-    2005,
-    128,
+    '',
+    '',
+    null,
+    null,
     'hola'
   );
   redes: AsignaturaEquivalente = new AsignaturaEquivalente(
-    'Redes de la Informacion',
-    'UTN',
-    2005,
-    128,
+    '',
+    '',
+    null,
+    null,
     'hola'
   );
   sistemaOperativosII: AsignaturaUNGS = new AsignaturaUNGS(
-    'Sistemas Operativos II',
-    [this.sor, this.redes]
+    '',
+    [this.sor]
   );
 
   materias: Array<AsignaturaUNGS> = new Array<AsignaturaUNGS>();
@@ -64,18 +64,22 @@ export class VistaAprobacionComponent implements OnInit {
   aprobacion: FormControl = new FormControl('', Validators.required);
   razon: FormControl = new FormControl('', Validators.required);
 
-  nuevaSolicitud: Solicitud;
-
-  constructor(private route: ActivatedRoute,
-    private router: Router) {
+  constructor() {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-    });
+  }
+
+  cargarSolicitud(solicitud: Solicitud) {
+    this.solicitud = solicitud;
+    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
+  }
+
+  downloadFile (e: AsignaturaEquivalente) {
+    saveAs(e.documentacion, 'test.pdf');
   }
 
   comprobar() {

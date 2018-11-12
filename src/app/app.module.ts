@@ -12,7 +12,7 @@ import { FormRegistroDocenteComponent } from './VistasDocente/RegistroDocente/fo
 import { RegistrodocentefooterComponent } from './VistasDocente/RegistroDocente/registrodocentefooter/registrodocentefooter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuBarDocenteComponent } from './VistasDocente/menu-bar-docente/menu-bar-docente.component';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatStepperModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatStepperModule, MatInputModule, MatTabsModule } from '@angular/material';
 import { TablaDocenteComponent } from './VistasDocente/tabla-docente/tabla-docente.component';0
 import { SesionDocenteComponent } from './VistasDocente/sesion-docente/sesion-docente.component';
 import { FormMateriaEquivalenciaComponent } from './VistasAlumno/SolicitudEquivalencia/form-materia-equivalencia/form-materia-equivalencia.component';
@@ -50,7 +50,7 @@ const routes: Routes = [
 {path: '11', component: SignInDocenteComponent},
 {path: 'qwe', component: LoginComponent},
 {path: '', component: VistaSeleccionComponent},
-{path: 'vistaAprobacion/:solicitud', component: VistaAprobacionComponent}
+{path: 'vistaAprobacion', component: VistaAprobacionComponent}
 ];
 
 
@@ -107,6 +107,7 @@ const routes: Routes = [
     HttpClientModule,
     MatStepperModule,
     RecaptchaModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

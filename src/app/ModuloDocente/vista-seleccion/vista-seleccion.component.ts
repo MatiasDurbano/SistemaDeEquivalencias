@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
-import { Router } from '@angular/router';
+import { VistaAprobacionComponent } from '../vista-aprobacion/vista-aprobacion.component';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -14,9 +14,9 @@ import { Router } from '@angular/router';
 export class VistaSeleccionComponent implements OnInit {
 
 
-  Listamaterias :Array<String>=["materia1","materia2"];
+  Listamaterias: Array<String> = ["materia1","materia2"];
   maxi: Alumno = new Alumno (
-    'Maximiliano',
+    'Andrea',
     'Pompilio',
     39071820,
     '39071820/2014',
@@ -53,7 +53,9 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudesFiltradas: Array<Solicitud>;
 
-  constructor(private serviceSolicitud: SolicitudService, private router: Router) {
+  @ViewChild(VistaAprobacionComponent) vistaAprobacion: VistaAprobacionComponent;
+
+  constructor(private serviceSolicitud: SolicitudService) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
@@ -82,8 +84,8 @@ export class VistaSeleccionComponent implements OnInit {
     }
   }
 
-  saludo(e: Solicitud) {
-    this.router.navigate(['vistaAprobacion', e]);
+  cargar(e: Solicitud) {
+    this.vistaAprobacion.cargarSolicitud(e);
   }
 
 }

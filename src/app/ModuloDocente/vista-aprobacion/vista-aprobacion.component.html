@@ -5,7 +5,7 @@
   <label>Nombre: {{solicitud.alumno.nombre}}</label>
 </div>
 <div>
-  <label>Apellido: {{solicitud.alumno.nombre}}</label>
+  <label>Apellido: {{solicitud.alumno.apellido}}</label>
 </div>
 <div>
   <label>Email: {{solicitud.alumno.email}}</label>
@@ -40,10 +40,11 @@
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="downloadFile(row)"></tr>
   </table>
 </div>
-<div>
+<div class="separacion">
   <mat-form-field>
     <mat-select placeholder="Decision" [formControl]="aprobacion" required>
       <mat-option *ngFor="let opcion of opciones" [value]="opcion.value">
@@ -52,12 +53,12 @@
     </mat-select>
   </mat-form-field>
 </div>
-<div>
+<div class="separacion">
   <mat-form-field>
     <textarea matInput placeholder="Razon de su decision" [formControl]="razon"></textarea>
     <mat-hint>Si se aprueba, no es necesario escribir una razon</mat-hint>
   </mat-form-field>
 </div>
-<div>
+<div class="separacion">
   <button mat-raised-button color="primary" (click)="comprobar()" [disabled]="aprobacion.invalid">Confirmar</button>
 </div>
