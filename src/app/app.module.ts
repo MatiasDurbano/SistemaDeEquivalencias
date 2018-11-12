@@ -48,7 +48,9 @@ const routes: Routes = [
 {path: 'equivalencia-solicitadas', component: FormMateriaEquivalenciaComponent},
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
 {path: '11', component: SignInDocenteComponent},
-{path: '', component: LoginComponent},
+{path: 'qwe', component: LoginComponent},
+{path: '', component: VistaSeleccionComponent},
+{path: 'vistaAprobacion/:solicitud', component: VistaAprobacionComponent}
 ];
 
 

@@ -3,6 +3,7 @@ import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -49,7 +50,7 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudesFiltradas: Array<Solicitud>;
 
-  constructor() {
+  constructor(private router: Router) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
@@ -73,7 +74,7 @@ export class VistaSeleccionComponent implements OnInit {
   }
 
   saludo(e: Solicitud) {
-    console.log(e);
+    this.router.navigate(['vistaAprobacion', e]);
   }
 
 }

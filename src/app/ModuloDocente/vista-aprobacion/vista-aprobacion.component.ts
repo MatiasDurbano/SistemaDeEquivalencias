@@ -4,6 +4,7 @@ import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Aprobacion {
   value: string;
@@ -63,13 +64,18 @@ export class VistaAprobacionComponent implements OnInit {
   aprobacion: FormControl = new FormControl('', Validators.required);
   razon: FormControl = new FormControl('', Validators.required);
 
-  constructor() {
+  nuevaSolicitud: Solicitud;
+
+  constructor(private route: ActivatedRoute,
+    private router: Router) {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+    });
   }
 
   comprobar() {
