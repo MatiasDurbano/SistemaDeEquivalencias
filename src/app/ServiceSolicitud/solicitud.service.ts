@@ -24,4 +24,9 @@ solicitarCarreras(): Observable<any>
     return this.http.post('/carrera',instituto);
   }
 
+  solicitarPorMaterias(materias: Array<String>): Observable<any>
+  {
+    return this.http.post('/getPorMateriasDocente',materias);
+  }
+
 }
