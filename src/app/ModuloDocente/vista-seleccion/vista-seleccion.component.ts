@@ -77,11 +77,6 @@ export class VistaSeleccionComponent implements OnInit {
     
         console.log(this.solicitudesFiltradas);
     });
-    
-    
-   
-
-
   }
 
   ngOnInit() {
@@ -93,6 +88,7 @@ export class VistaSeleccionComponent implements OnInit {
         console.log(asignatura);
         if (asignatura.nombre === docente && asignatura.estado === '') {
           this.solicitudesFiltradas.push(solicitud);
+
         }
       }
     }
