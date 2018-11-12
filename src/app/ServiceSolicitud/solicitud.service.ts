@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { ListaMateria } from '../model/ListaMateria';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +25,9 @@ solicitarCarreras(): Observable<any>
     return this.http.post('/carrera',instituto);
   }
 
-  solicitarPorMaterias(materias: Array<String>): Observable<any>
+  solicitarPorMaterias(lista: ListaMateria): Observable<any>
   {
-    return this.http.post('/getPorMateriasDocente',materias);
+    return this.http.post('/getPorMateriasDocente',lista);
   }
 
 }

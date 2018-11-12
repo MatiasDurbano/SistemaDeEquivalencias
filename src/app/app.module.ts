@@ -44,12 +44,12 @@ const routes: Routes = [
 {path: 'vista-add-materia/:instituto', component: VistaMateriaComponent},
 {path: 'form-materia-docente', component: FormMateriaDocenteComponent},
 {path: 'sesion-docente', component: SesionDocenteComponent},
-{path: '23231', component: PasoAPasoSolicitudComponent},
+{path: '', component: PasoAPasoSolicitudComponent},
 {path: 'equivalencia-solicitadas', component: FormMateriaEquivalenciaComponent},
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
 {path: '11', component: SignInDocenteComponent},
 {path: 'qwe', component: LoginComponent},
-{path: '', component: VistaSeleccionComponent},
+{path: '3223', component: VistaSeleccionComponent},
 {path: 'vistaAprobacion/:solicitud', component: VistaAprobacionComponent}
 ];
 

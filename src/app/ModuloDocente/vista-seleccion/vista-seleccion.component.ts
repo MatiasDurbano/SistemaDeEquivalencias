@@ -5,6 +5,7 @@ import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/Asignatura
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 import { Router } from '@angular/router';
+import { ListaMateria } from 'src/app/model/ListaMateria';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class VistaSeleccionComponent implements OnInit {
 
 
-  Listamaterias :Array<String>=["materia1","materia2"];
+  
   maxi: Alumno = new Alumno (
     'Maximiliano',
     'Pompilio',
@@ -53,6 +54,10 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudesFiltradas: Array<Solicitud>;
 
+  listaMateriasDocente :Array<String>=["materia1","materia2"];
+  listaMaterias:ListaMateria=new ListaMateria();
+  
+ 
   constructor(private serviceSolicitud: SolicitudService, private router: Router) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
@@ -61,10 +66,20 @@ export class VistaSeleccionComponent implements OnInit {
     this.solicitudesFiltradas = new Array<Solicitud>();
     this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
 
-    this.serviceSolicitud.solicitarPorMaterias(this.Listamaterias).subscribe(
+    
+    this.listaMaterias.set(this.listaMateriasDocente);
+    
+    this.serviceSolicitud.solicitarPorMaterias(this.listaMaterias).subscribe(
       Response => {
         this.solicitudesFiltradas = Response;
+        console.log("FILTRADO");
+    
+        console.log(this.solicitudesFiltradas);
     });
+    
+    
+   
+
 
   }
 
