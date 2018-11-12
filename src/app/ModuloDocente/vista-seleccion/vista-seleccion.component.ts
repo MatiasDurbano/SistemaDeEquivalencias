@@ -3,11 +3,8 @@ import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
-<<<<<<< HEAD
-import { Router } from '@angular/router';
-=======
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
->>>>>>> df757dbfec01ee654e7476e883ab030eee107fbd
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -56,11 +53,7 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudesFiltradas: Array<Solicitud>;
 
-<<<<<<< HEAD
-  constructor(private router: Router) {
-=======
-  constructor(private serviceSolicitud: SolicitudService) {
->>>>>>> df757dbfec01ee654e7476e883ab030eee107fbd
+  constructor(private serviceSolicitud: SolicitudService, private router: Router) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
@@ -69,9 +62,8 @@ export class VistaSeleccionComponent implements OnInit {
     this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
 
     this.serviceSolicitud.solicitarPorMaterias(this.Listamaterias).subscribe(
-      Response=>{
-        this.solicitudesFiltradas=Response;
-         
+      Response => {
+        this.solicitudesFiltradas = Response;
     });
 
   }
