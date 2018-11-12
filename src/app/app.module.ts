@@ -38,6 +38,7 @@ import { VistaMateriaComponent } from './ModuloMateria/vista-materia/vista-mater
 import { TablaMateriasComponent } from './ModuloMateria/tabla-materias/tabla-materias.component';
 import { VistaAprobacionComponent } from './ModuloDocente/vista-aprobacion/vista-aprobacion.component';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { VistaSeleccionComponent } from './ModuloDocente/vista-seleccion/vista-seleccion.component';
 
 const routes: Routes = [
 {path: 'form-materia-docente', component: FormMateriaDocenteComponent},
@@ -81,6 +82,7 @@ const routes: Routes = [
     VistaMateriaComponent,
     TablaMateriasComponent,
     VistaAprobacionComponent,
+    VistaSeleccionComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,14 +3,18 @@ import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 export class AsignaturaUNGS {
     nombre: string;
     equivalencias: Array<AsignaturaEquivalente>;
-    estado: boolean;
+    estado: string;
     comentarios: string;
 
     constructor(nombre: string, equivalencias: Array<AsignaturaEquivalente>) {
         this.nombre = nombre;
         this.equivalencias = equivalencias;
-        this.estado = false;
+        this.estado = '';
         this.comentarios = '';
+    }
+
+    setEstado(estado: string) {
+        this.estado = estado;
     }
 
     saludar(): string {
