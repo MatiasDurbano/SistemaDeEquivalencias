@@ -1,13 +1,13 @@
 import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 
 export class AsignaturaUNGS {
-    nombre: string;
+    materiaUngs: string;
     equivalencias: Array<AsignaturaEquivalente>;
     estado: string;
     comentarios: string;
 
     constructor(nombre: string, equivalencias: Array<AsignaturaEquivalente>) {
-        this.nombre = nombre;
+        this.materiaUngs = nombre;
         this.equivalencias = equivalencias;
         this.estado = '';
         this.comentarios = '';
@@ -18,6 +18,6 @@ export class AsignaturaUNGS {
     }
 
     saludar(): string {
-        return this.nombre;
+        return this.materiaUngs;
     }
 }

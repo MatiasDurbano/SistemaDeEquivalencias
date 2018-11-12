@@ -67,15 +67,16 @@ export class VistaAprobacionComponent implements OnInit {
   constructor() {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
-    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
+    this.dataSource = this.solicitud.asignaturaUngs[0].equivalencias;
   }
 
   ngOnInit() {
   }
 
   cargarSolicitud(solicitud: Solicitud) {
+
     this.solicitud = solicitud;
-    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
+    this.dataSource = this.solicitud.asignaturaUngs[0].equivalencias;
   }
 
   downloadFile (e: AsignaturaEquivalente) {
