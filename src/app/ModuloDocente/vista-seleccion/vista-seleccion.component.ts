@@ -3,6 +3,7 @@ import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
+import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -11,6 +12,8 @@ import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
 })
 export class VistaSeleccionComponent implements OnInit {
 
+
+  Listamaterias :Array<String>=["materia1","materia2"];
   maxi: Alumno = new Alumno (
     'Maximiliano',
     'Pompilio',
@@ -49,13 +52,20 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudesFiltradas: Array<Solicitud>;
 
-  constructor() {
+  constructor(private serviceSolicitud: SolicitudService) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.solicitudes.push(this.solicitud);
     this.solicitudesFiltradas = new Array<Solicitud>();
     this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
+
+    this.serviceSolicitud.solicitarPorMaterias(this.Listamaterias).subscribe(
+      Response=>{
+        this.solicitudesFiltradas=Response;
+         
+    });
+
   }
 
   ngOnInit() {
