@@ -1,5 +1,5 @@
 <mat-tab-group>
-  <mat-tab label="First">
+  <mat-tab label="Solicitudes pendientes">
     <table mat-table [dataSource]="solicitudesFiltradas" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
@@ -33,7 +33,7 @@
       (click)="cargar(row)"></tr>
     </table>
   </mat-tab>
-  <mat-tab label="Second">
+  <mat-tab label="Aprobacion">
     <app-vista-aprobacion></app-vista-aprobacion>
   </mat-tab>
 </mat-tab-group>

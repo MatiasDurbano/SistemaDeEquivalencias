@@ -53,18 +53,18 @@ export class VistaSeleccionComponent implements OnInit {
   solicitudes: Array<Solicitud>;
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'carrera'];
 
-  solicitudesFiltradas: Array<Solicitud>;
+
 
   listaMateriasDocente :Array<String>=["materia1","materia2"];
   listaMaterias:ListaMateria=new ListaMateria();
   @ViewChild(VistaAprobacionComponent) vistaAprobacion: VistaAprobacionComponent;
- 
+  solicitudesFiltradas = new Array<Solicitud>();
   constructor(private serviceSolicitud: SolicitudService, private router: Router) {
     this.solicitudes = new Array<Solicitud>();
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.solicitudes.push(this.solicitud);
-    this.solicitudesFiltradas = new Array<Solicitud>();
+    
     this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
 
     
@@ -75,7 +75,7 @@ export class VistaSeleccionComponent implements OnInit {
         this.solicitudesFiltradas = Response;
         console.log("FILTRADO");
     
-        console.log(this.solicitudesFiltradas);
+        console.log(Response);
     });
   }
 
@@ -84,9 +84,9 @@ export class VistaSeleccionComponent implements OnInit {
 
   filtrarSolicitudes(solicitudes: Array<Solicitud>, docente: string) {
     for (const solicitud of solicitudes) {
-      for (const asignatura of solicitud.asignaturasUNGS) {
+      for (const asignatura of solicitud.asignaturaUngs) {
         console.log(asignatura);
-        if (asignatura.nombre === docente && asignatura.estado === '') {
+        if (asignatura.materiaUngs === docente && asignatura.estado === '') {
           this.solicitudesFiltradas.push(solicitud);
 
         }

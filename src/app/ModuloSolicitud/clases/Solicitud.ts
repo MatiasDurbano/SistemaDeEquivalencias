@@ -4,17 +4,17 @@ import { Comentario } from './Comentario';
 
 export class Solicitud {
     alumno: Alumno;
-    asignaturasUNGS: Array<AsignaturaUNGS>;
+    asignaturaUngs: Array<AsignaturaUNGS>;
     estado: boolean;
 
-    constructor(alumno: Alumno, asignaturasUNGS: Array<AsignaturaUNGS>) {
+    constructor(alumno: Alumno, asignaturaUNGS: Array<AsignaturaUNGS>) {
         this.alumno = alumno;
-        this.asignaturasUNGS = asignaturasUNGS;
+        this.asignaturaUngs = asignaturaUNGS;
         this.estado = false;
     }
 
     saludar(): string {
         return `${this.alumno.saludar()}
-        ${this.asignaturasUNGS.length}`;
+        ${this.asignaturaUngs.length}`;
     }
 }
