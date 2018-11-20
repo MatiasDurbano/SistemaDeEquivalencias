@@ -1,0 +1,11 @@
+<form [formGroup]="formCodigo">
+    <div class="codigo">
+      <mat-form-field class="campo">
+        <input matInput placeholder="Codigo" formControlName="codigo" required>
+        <mat-error *ngIf="formCodigo.get('codigo').hasError('required')">
+          El <strong>codigo</strong> es necesario
+        </mat-error>
+      </mat-form-field>
+      <button  mat-raised-button class="boton3"(click)="Consultar()" ><mat-icon class="iconoLogin">account_circle</mat-icon>Consultar</button>
+    </div>
+</form>

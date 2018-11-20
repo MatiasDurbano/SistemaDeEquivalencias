@@ -40,6 +40,10 @@ import { VistaAprobacionComponent } from './ModuloDocente/vista-aprobacion/vista
 import { RecaptchaModule } from 'ng-recaptcha';
 import { VistaSeleccionComponent } from './ModuloDocente/vista-seleccion/vista-seleccion.component';
 import { ToolbarComponent } from './moduloVentanaPrincipal/toolbar/toolbar.component';
+import { FormCodigoComponent } from './ModuloConsulta/form-codigo/form-codigo.component';
+import { TablaConsultaComponent } from './ModuloConsulta/tabla-consulta/tabla-consulta.component';
+import { DatosAlumnoComponent } from './ModuloConsulta/datos-alumno/datos-alumno.component';
+
 
 const routes: Routes = [
 {path: 'vista-add-materia/:instituto', component: VistaMateriaComponent},
@@ -52,6 +56,10 @@ const routes: Routes = [
 {path: '11111', component: VistaSeleccionComponent},
 {path: '1111', component: VistaAprobacionComponent},
 {path: 'solcitud', component: PasoAPasoSolicitudComponent},
+{path: 'consulta', component: FormCodigoComponent},
+{path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
+
+
 {path: '', component: ToolbarComponent}
 ];
 
@@ -89,6 +97,9 @@ const routes: Routes = [
     VistaAprobacionComponent,
     VistaSeleccionComponent,
     ToolbarComponent,
+    FormCodigoComponent,
+    TablaConsultaComponent,
+    DatosAlumnoComponent,
   ],
   imports: [
     BrowserModule,

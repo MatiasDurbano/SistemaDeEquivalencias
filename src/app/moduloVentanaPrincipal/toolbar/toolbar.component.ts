@@ -20,4 +20,8 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(["solcitud"]);
   }
 
+  consulta(){
+    this.router.navigate(["consulta"]);
+  }
+
 }

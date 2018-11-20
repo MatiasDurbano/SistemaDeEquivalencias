@@ -1,20 +1,20 @@
 import { Alumno } from './Alumno';
-import { AsignaturaUNGS } from './AsignaturaUNGS';
+import { AsignaturasUNGS } from './AsignaturasUNGS';
 import { Comentario } from './Comentario';
 
 export class Solicitud {
     alumno: Alumno;
-    asignaturaUngs: Array<AsignaturaUNGS>;
+    asignaturasUNGS: Array<AsignaturasUNGS>;
     estado: boolean;
 
-    constructor(alumno: Alumno, asignaturaUNGS: Array<AsignaturaUNGS>) {
+    constructor(alumno: Alumno, asignaturasUNGS: Array<AsignaturasUNGS>) {
         this.alumno = alumno;
-        this.asignaturaUngs = asignaturaUNGS;
+        this.asignaturasUNGS = asignaturasUNGS;
         this.estado = false;
     }
 
     saludar(): string {
         return `${this.alumno.saludar()}
-        ${this.asignaturaUngs.length}`;
+        ${this.asignaturasUNGS.length}`;
     }
 }

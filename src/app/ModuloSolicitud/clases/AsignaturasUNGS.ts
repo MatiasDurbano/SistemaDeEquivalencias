@@ -1,6 +1,6 @@
 import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 
-export class AsignaturaUNGS {
+export class AsignaturasUNGS {
     materiaUngs: string;
     equivalencias: Array<AsignaturaEquivalente>;
     estado: string;

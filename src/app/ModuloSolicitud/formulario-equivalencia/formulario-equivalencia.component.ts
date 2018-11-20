@@ -3,7 +3,7 @@ import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/
 import { AsignaturaEquivalente } from '../clases/AsignaturaEquivalente';
 import { TablaAsignaturaEquivalenteComponent } from '../tabla-asignatura-equivalente/tabla-asignatura-equivalente.component';
 import { TablaAsignaturaUNGSComponent } from '../tabla-asignatura-ungs/tabla-asignatura-ungs.component';
-import { AsignaturaUNGS } from '../clases/AsignaturaUNGS';
+import { AsignaturasUNGS } from '../clases/AsignaturasUNGS';
 
 @Component({
   selector: 'app-formulario-equivalencia',
@@ -45,8 +45,8 @@ export class FormularioEquivalenciaComponent implements OnInit {
     return ret;
   }
 
-  generarAsignaturaUNGS(): AsignaturaUNGS {
-    const ret: AsignaturaUNGS = new AsignaturaUNGS(
+  generarAsignaturaUNGS(): AsignaturasUNGS {
+    const ret: AsignaturasUNGS = new AsignaturasUNGS(
       this.formAsignaturaUNGS.get('nombre').value,
       this.tablaAsignaturaEquivalente.generarArregloAsignaturaEquivalente()
     );
