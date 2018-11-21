@@ -4,13 +4,13 @@ export class AsignaturasUNGS {
     materiaUngs: string;
     equivalencias: Array<AsignaturaEquivalente>;
     estado: string;
-    comentarios: string;
+    comentario: string;
 
     constructor(nombre: string, equivalencias: Array<AsignaturaEquivalente>) {
         this.materiaUngs = nombre;
         this.equivalencias = equivalencias;
         this.estado = '';
-        this.comentarios = '';
+        this.comentario = '';
     }
 
     setEstado(estado: string) {

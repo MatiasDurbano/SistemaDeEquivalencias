@@ -1,35 +1,59 @@
+<app-toolbar></app-toolbar>
 
 
-<div *ngIf="mostrar">
+<div class="div">
 
-<div>
-<label>Nombre: {{solicitud.alumno.nombre}}</label>
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title class="titulo"><h1>Tu solicitud:</h1></mat-card-title>
+    </mat-card-header>
+
+<div class="todo">
+    <div class="formulario" *ngIf="mostrar">
+    <div>
+        <label class="nombreAtributo">Nombre: </label>
+        <label>{{solicitud.alumno.nombre}}</label>
+    </div>
+
+    <div>
+        <label class="nombreAtributo">Apellido: </label>
+        <label>{{solicitud.alumno.apellido}}</label>
+    </div>
+
+    <div>
+        <label class="nombreAtributo">dni: </label>
+        <label> {{solicitud.alumno.dni}}</label>
+
+    </div>
+
+    <div>
+        <label class="nombreAtributo">email: </label>
+        <label>{{solicitud.alumno.email}}</label>
+
+    </div>
+
+    <div>
+        <label class="nombreAtributo">Telefono: </label>
+        <label >{{solicitud.alumno.telefono}}</label>
+
+    </div>
+
+    <div>
+        <label class="nombreAtributo">Legajo: </label>
+        <label >{{solicitud.alumno.legajo}}</label>
+
+    </div>
+
+    <div>
+        <label class="nombreAtributo">Carrera:</label>
+        <label >{{solicitud.carrera}}</label>
+    </div>
+
+</div>
+    <div class="tabla">
+        <app-tabla-consulta></app-tabla-consulta>
+    </div>
 </div>
 
-<div>
-<label>Apellido: {{solicitud.alumno.apellido}}</label>
+</mat-card>
 </div>
-
-<div>
-<label>dni: {{solicitud.alumno.dni}}</label>
-</div>
-
-<div>
-<label>email: {{solicitud.alumno.email}}</label>
-</div>
-
-<div>
-<label>Telefono: {{solicitud.alumno.telefono}}</label>
-</div>
-
-<div>
-<label>Legajo: {{solicitud.alumno.legajo}}</label>
-</div>
-
-<div>
-<label>Carrera: {{solicitud.carrera}}</label>
-</div>
-
-</div>
-
-<app-tabla-consulta></app-tabla-consulta>

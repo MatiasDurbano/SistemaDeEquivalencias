@@ -1,0 +1,73 @@
+
+.t{
+    padding: left;
+    padding-left: 100px;
+    padding-right: 122px;
+}
+
+.cuadro{
+    padding-top: 60px;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+  
+}
+
+.texto{
+    text-align:justify;
+    height: 25%;
+    width: 25%;
+    float: left;
+    padding-left: 5%;
+    padding-right: 1%;
+  
+}
+
+.titulo1{
+    font-size: 20px;
+    color: #123280;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.parrafo1{
+    color: #000000;
+}
+.img{
+    height: 25%;
+    width: 25%;
+     
+}
+.cuadro2{
+    padding-top: 10px;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+}
+
+.texto2{
+    text-align:justify;
+    height: 25%;
+    width: 25%;
+    float: right;
+    padding-right: 15%;
+}
+
+.titulo2{
+    font-size: 25px;
+    color: #123280;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.parrafo2{
+    color: #000000;
+}
+
+.imagenes2{
+    height: 25%;
+    width: 25%;
+    padding-left: 5%;    
+}
+
+.card{
+
+    background-image: linear-gradient(#3373ff, #c8d5fc);
+}

@@ -43,6 +43,7 @@ import { ToolbarComponent } from './moduloVentanaPrincipal/toolbar/toolbar.compo
 import { FormCodigoComponent } from './ModuloConsulta/form-codigo/form-codigo.component';
 import { TablaConsultaComponent } from './ModuloConsulta/tabla-consulta/tabla-consulta.component';
 import { DatosAlumnoComponent } from './ModuloConsulta/datos-alumno/datos-alumno.component';
+import { CuerpoComponent } from './moduloVentanaPrincipal/cuerpo/cuerpo.component';
 
 
 const routes: Routes = [
@@ -60,7 +61,7 @@ const routes: Routes = [
 {path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
 
 
-{path: '', component: ToolbarComponent}
+{path: '', component: CuerpoComponent}
 ];
 
 
@@ -100,6 +101,7 @@ const routes: Routes = [
     FormCodigoComponent,
     TablaConsultaComponent,
     DatosAlumnoComponent,
+    CuerpoComponent,
   ],
   imports: [
     BrowserModule,

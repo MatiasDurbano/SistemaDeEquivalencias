@@ -3,9 +3,6 @@
    padding-left: 2%;
    background-color:  #3366ff;
 }
-.pagCompleta{
-    padding-bottom: 50px;
-}
 
 .titulo{
     color: #ffffff;
@@ -30,85 +27,6 @@
     padding-left: 5px;
    
 }
-
-.t{
-    padding: left;
-    padding-left: 10%;
-    padding-right: 12%;
-}
-
-.cuadro{
-    border-radius: 25px;
-    border: 2px solid #ffffff;
-    background: #3366ff;
-    padding-top: 60px;
-    box-sizing: border-box;
-    padding-bottom: 60px;
-  
-}
-
-.texto{
-   
-    height: 25%;
-    width: 25%;
-    float: left;
-    padding-left: 5%;
-    padding-right: 1%;
-  
-}
-
-.titulo1{
-    font-size: 25px;
-    color: #123280;
-    font-family: Arial, Helvetica, sans-serif;
-    
-}
-
-.parrafo1{
-    color: #000000;
-}
-.img{
-    height: 25%;
-    width: 25%;
-     
-}
-.cuadro2{
-    border-radius: 25px;
-    border: 2px solid #ffffff;
-    background: #3366ff;
-    padding-top: 60px;
-    box-sizing: border-box;
-    padding-bottom: 60px;
-}
-
-.texto2{
-    height: 25%;
-    width: 25%;
-    float: right;
-    padding-right: 3%;
-}
-
-.titulo2{
-    font-size: 25px;
-    color: #123280;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.parrafo2{
-    color: #000000;
-}
-
-.imagenes2{
-    height: 25%;
-    width: 25%;
-    padding-left: 28%;    
-}
-
-.btnLogin{
-    float: right;
-    padding-right: 0%;  
-}
-
 .boton1{
     background-color: #3399ff;
     color: #ffffff;

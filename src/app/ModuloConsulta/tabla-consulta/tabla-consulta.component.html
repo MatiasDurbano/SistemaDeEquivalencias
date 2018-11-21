@@ -1,10 +1,13 @@
+<div class="tabla">
+
 <table mat-table
        [dataSource]="dataSource" multiTemplateDataRows
        class="mat-elevation-z8">
 
   <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef> <h2>Asignatura Solicitada</h2> </th>
+    <th class="asignatura" mat-header-cell *matHeaderCellDef> <h2>Asignatura Solicitada</h2> </th>
     <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+    <td mat-cell *matCellDef="let element">estado: {{element.estado}} </td>
   </ng-container>
 
   <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
@@ -17,6 +20,11 @@
           <li *ngFor="let item of element.equivalencias">
             <strong>Asignatura Propuesta : </strong>{{item.nombre}} <strong> Instituto de Origen : </strong>{{item.institutoOrigen}} <strong> Año de Aprobacion : </strong>{{item.anoAprobacion}} <strong> Carga Horaria : </strong>{{item.cargaHoraria}}
           </li>
+          <h4>Estado de solicitud:</h4>
+          <td><strong>Estado : </strong>{{element.estado}}</td>
+          <div>
+            <td><strong>Comenario : </strong>{{element.coemntario}}</td>
+          </div>
         </div>
       </div>
     </td>
@@ -30,3 +38,5 @@
   </tr>
   <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
 </table>
+
+</div>
