@@ -49,8 +49,8 @@ const routes: Routes = [
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
 {path: '11', component: SignInDocenteComponent},
 {path: '21321', component: LoginComponent},
-{path: '', component: VistaSeleccionComponent},
-{path: '1111', component: VistaAprobacionComponent}
+{path: '111', component: VistaSeleccionComponent},
+{path: '', component: VistaAprobacionComponent}
 ];
 
 
