@@ -50,7 +50,10 @@ export class FormularioEquivalenciaComponent implements OnInit {
       this.formAsignaturaUNGS.get('nombre').value,
       this.tablaAsignaturaEquivalente.generarArregloAsignaturaEquivalente()
     );
+    console.log(ret);
+    
     return ret;
+
   }
 
   agregarAsignaturaEquvalente() {
