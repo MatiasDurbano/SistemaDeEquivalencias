@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {DataSource} from '@angular/cdk/collections';
 import {BehaviorSubject, Observable} from 'rxjs';
-import { AsignaturaUNGS } from '../clases/AsignaturaUNGS';
+import { AsignaturasUNGS } from '../clases/AsignaturasUNGS';
 
 @Component({
   selector: 'app-tabla-asignatura-ungs',
@@ -21,14 +21,14 @@ export class TablaAsignaturaUNGSComponent implements OnInit {
 
   dataSource = new DataSourceTablaAsignaturaUNGS();
   columnsToDisplay = ['nombre'];
-  expandedElement: AsignaturaUNGS;
+  expandedElement: AsignaturasUNGS;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  add(nuevo: AsignaturaUNGS) {
+  add(nuevo: AsignaturasUNGS) {
     ELEMENT_DATA.push(nuevo);
     this.dataSource = new DataSourceTablaAsignaturaUNGS();
   }
@@ -38,7 +38,7 @@ export class TablaAsignaturaUNGSComponent implements OnInit {
     this.dataSource = new DataSourceTablaAsignaturaUNGS();
   }
 
-  generarArregloAsignaturaUNGS(): Array<AsignaturaUNGS> {
+  generarArregloAsignaturaUNGS(): Array<AsignaturasUNGS> {
     const ret = ELEMENT_DATA;
     return ret;
   }
@@ -53,12 +53,12 @@ export class TablaAsignaturaUNGSComponent implements OnInit {
 
 }
 
-const ELEMENT_DATA: Array<AsignaturaUNGS> = new Array<AsignaturaUNGS>();
+const ELEMENT_DATA: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
 
-export class DataSourceTablaAsignaturaUNGS extends DataSource<AsignaturaUNGS> {
-  data = new BehaviorSubject<AsignaturaUNGS[]>(ELEMENT_DATA);
+export class DataSourceTablaAsignaturaUNGS extends DataSource<AsignaturasUNGS> {
+  data = new BehaviorSubject<AsignaturasUNGS[]>(ELEMENT_DATA);
 
-  connect(): Observable<AsignaturaUNGS[]> {
+  connect(): Observable<AsignaturasUNGS[]> {
     return this.data;
   }
 

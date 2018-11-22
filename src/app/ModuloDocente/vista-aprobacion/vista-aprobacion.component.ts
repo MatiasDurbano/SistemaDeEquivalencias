@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
-import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
+import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { saveAs } from 'file-saver';
@@ -44,12 +44,12 @@ export class VistaAprobacionComponent implements OnInit {
     null,
     'hola'
   );
-  sistemaOperativosII: AsignaturaUNGS = new AsignaturaUNGS(
+  sistemaOperativosII: AsignaturasUNGS = new AsignaturasUNGS(
     '',
     [this.sor]
   );
 
-  materias: Array<AsignaturaUNGS> = new Array<AsignaturaUNGS>();
+  materias: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
   solicitud: Solicitud;
 
   displayedColumns: string[] = ['nombre', 'institutoOrigen', 'anoAprobacion', 'cargaHoraria'];
@@ -67,7 +67,7 @@ export class VistaAprobacionComponent implements OnInit {
   constructor() {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
-    this.dataSource = this.solicitud.asignaturaUngs[0].equivalencias;
+    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
   }
 
   ngOnInit() {
@@ -76,7 +76,7 @@ export class VistaAprobacionComponent implements OnInit {
   cargarSolicitud(solicitud: Solicitud) {
 
     this.solicitud = solicitud;
-    this.dataSource = this.solicitud.asignaturaUngs[0].equivalencias;
+    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
   }
 
   downloadFile (e: AsignaturaEquivalente) {

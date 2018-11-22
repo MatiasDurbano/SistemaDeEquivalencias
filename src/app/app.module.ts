@@ -39,18 +39,29 @@ import { TablaMateriasComponent } from './ModuloMateria/tabla-materias/tabla-mat
 import { VistaAprobacionComponent } from './ModuloDocente/vista-aprobacion/vista-aprobacion.component';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { VistaSeleccionComponent } from './ModuloDocente/vista-seleccion/vista-seleccion.component';
+import { ToolbarComponent } from './moduloVentanaPrincipal/toolbar/toolbar.component';
+import { FormCodigoComponent } from './ModuloConsulta/form-codigo/form-codigo.component';
+import { TablaConsultaComponent } from './ModuloConsulta/tabla-consulta/tabla-consulta.component';
+import { DatosAlumnoComponent } from './ModuloConsulta/datos-alumno/datos-alumno.component';
+import { CuerpoComponent } from './moduloVentanaPrincipal/cuerpo/cuerpo.component';
+
 
 const routes: Routes = [
 {path: 'vista-add-materia/:instituto', component: VistaMateriaComponent},
 {path: 'form-materia-docente', component: FormMateriaDocenteComponent},
 {path: 'sesion-docente', component: SesionDocenteComponent},
-{path: 'dad', component: PasoAPasoSolicitudComponent},
 {path: 'equivalencia-solicitadas', component: FormMateriaEquivalenciaComponent},
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
 {path: '11', component: SignInDocenteComponent},
-{path: '21321', component: LoginComponent},
-{path: '111', component: VistaSeleccionComponent},
-{path: '', component: VistaAprobacionComponent}
+{path: 'login', component: LoginComponent},
+{path: '11111', component: VistaSeleccionComponent},
+{path: '1111', component: VistaAprobacionComponent},
+{path: 'solcitud', component: PasoAPasoSolicitudComponent},
+{path: 'consulta', component: FormCodigoComponent},
+{path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
+
+
+{path: '', component: CuerpoComponent}
 ];
 
 
@@ -86,6 +97,11 @@ const routes: Routes = [
     TablaMateriasComponent,
     VistaAprobacionComponent,
     VistaSeleccionComponent,
+    ToolbarComponent,
+    FormCodigoComponent,
+    TablaConsultaComponent,
+    DatosAlumnoComponent,
+    CuerpoComponent,
   ],
   imports: [
     BrowserModule,

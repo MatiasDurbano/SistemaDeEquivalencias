@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { Alumno } from 'src/app/ModuloSolicitud/clases/Alumno';
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
-import { AsignaturaUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturaUNGS';
+import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 import { VistaAprobacionComponent } from '../vista-aprobacion/vista-aprobacion.component';
 import { Router } from '@angular/router';
@@ -42,12 +42,12 @@ export class VistaSeleccionComponent implements OnInit {
     128,
     null
   );
-  sistemaOperativosII: AsignaturaUNGS = new AsignaturaUNGS(
+  sistemaOperativosII: AsignaturasUNGS = new AsignaturasUNGS(
     'Sistemas Operativos II',
     [this.sor, this.redes]
   );
 
-  materias: Array<AsignaturaUNGS> = new Array<AsignaturaUNGS>();
+  materias: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
   solicitud: Solicitud;
 
   solicitudes: Array<Solicitud>;
@@ -84,7 +84,7 @@ export class VistaSeleccionComponent implements OnInit {
 
   filtrarSolicitudes(solicitudes: Array<Solicitud>, docente: string) {
     for (const solicitud of solicitudes) {
-      for (const asignatura of solicitud.asignaturaUngs) {
+      for (const asignatura of solicitud.asignaturasUNGS) {
         console.log(asignatura);
         if (asignatura.materiaUngs === docente && asignatura.estado === '') {
           this.solicitudesFiltradas.push(solicitud);

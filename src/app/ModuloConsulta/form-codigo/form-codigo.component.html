@@ -1,0 +1,24 @@
+<app-toolbar></app-toolbar>
+
+<div class=pag>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title class="titulo"><h1>Consultar por codigo</h1></mat-card-title>
+        </mat-card-header>
+    <div class=form>
+      <form [formGroup]="formCodigo">
+        <div class="codigo">
+          <mat-form-field class="campo">
+            <input matInput placeholder="Ingrese codigo" formControlName="codigo" required>
+            <mat-error *ngIf="formCodigo.get('codigo').hasError('required')">
+               El <strong>codigo</strong> es necesario
+            </mat-error>
+          </mat-form-field>
+        <div>
+          <button  mat-raised-button class="boton3"(click)="Consultar()" color="primary" ><mat-icon class="iconoLogin">account_circle</mat-icon>Consultar</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </mat-card>
+</div>
