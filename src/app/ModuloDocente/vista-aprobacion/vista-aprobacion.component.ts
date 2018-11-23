@@ -76,8 +76,7 @@ export class VistaAprobacionComponent implements OnInit {
   cargarSolicitud(solicitud: Solicitud) {
 
     this.solicitud = solicitud;
-    //ACA HAY UN ERROR
-    this.dataSource = this.solicitud .asignaturasUNGS[0].equivalencias;
+    this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
   }
 
   downloadFile (e: AsignaturaEquivalente) {
