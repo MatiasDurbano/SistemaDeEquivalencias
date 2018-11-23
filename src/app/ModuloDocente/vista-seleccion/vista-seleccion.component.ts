@@ -68,7 +68,8 @@ export class VistaSeleccionComponent implements OnInit {
       
   }
 
-  show = false;
+  showtable = false;
+  showcargando = true;
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -77,7 +78,8 @@ export class VistaSeleccionComponent implements OnInit {
    
    this.buscarMateriasDocente().then(result=>{
           this.buscarSolicitudes(<ListaMateria>result).then(resultado=>{
-            this.show=<boolean>resultado;
+            this.showtable = <boolean>resultado;
+            this.showcargando = !<boolean>resultado;
           });
     });
         
