@@ -17,6 +17,10 @@ export class AsignaturasUNGS {
         this.estado = estado;
     }
 
+    setComentario(comentario: string) {
+        this.comentario = comentario;
+    }
+
     saludar(): string {
         return this.materiaUngs;
     }

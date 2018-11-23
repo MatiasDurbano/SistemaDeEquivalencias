@@ -31,6 +31,7 @@ export class TablaAsignaturaUNGSComponent implements OnInit {
   add(nuevo: AsignaturasUNGS) {
     ELEMENT_DATA.push(nuevo);
     this.dataSource = new DataSourceTablaAsignaturaUNGS();
+    console.log(ELEMENT_DATA);
   }
 
   remove() {

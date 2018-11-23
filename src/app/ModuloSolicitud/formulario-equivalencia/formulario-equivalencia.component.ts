@@ -51,9 +51,8 @@ export class FormularioEquivalenciaComponent implements OnInit {
       this.tablaAsignaturaEquivalente.generarArregloAsignaturaEquivalente()
     );
     console.log(ret);
-    
-    return ret;
 
+    return ret;
   }
 
   agregarAsignaturaEquvalente() {
@@ -68,6 +67,7 @@ export class FormularioEquivalenciaComponent implements OnInit {
   agregarAsignaturaUNGS() {
     this.tablaAsignaturaUNGS.add(this.generarAsignaturaUNGS());
     this.formAsignaturaUNGS.reset();
+    this.tablaAsignaturaEquivalente.limpiar();
   }
 
   borrarAsignaturaUNGS() {

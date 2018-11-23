@@ -52,11 +52,10 @@ export class VistaSeleccionComponent implements OnInit {
 
   solicitudes: Array<Solicitud>;
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'carrera'];
+  selected = 0;
 
-
-
-  listaMateriasDocente :Array<String>=["materia1","materia2"];
-  listaMaterias:ListaMateria=new ListaMateria();
+  listaMateriasDocente: Array<String> = ['materia1', 'materia2'];
+  listaMaterias: ListaMateria = new ListaMateria();
   @ViewChild(VistaAprobacionComponent) vistaAprobacion: VistaAprobacionComponent;
   solicitudesFiltradas = new Array<Solicitud>();
   constructor(private serviceSolicitud: SolicitudService, private router: Router) {
@@ -64,17 +63,17 @@ export class VistaSeleccionComponent implements OnInit {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.solicitudes.push(this.solicitud);
-    
+
     this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
 
-    
+
     this.listaMaterias.set(this.listaMateriasDocente);
-    
+
     this.serviceSolicitud.solicitarPorMaterias(this.listaMaterias).subscribe(
       Response => {
         this.solicitudesFiltradas = Response;
         console.log("FILTRADO");
-    
+
         console.log(Response);
     });
   }
@@ -96,6 +95,7 @@ export class VistaSeleccionComponent implements OnInit {
 
   cargar(e: Solicitud) {
     this.vistaAprobacion.cargarSolicitud(e);
+    this.selected = 1;
   }
 
 }

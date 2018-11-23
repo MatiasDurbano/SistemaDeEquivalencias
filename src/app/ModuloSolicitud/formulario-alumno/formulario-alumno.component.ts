@@ -30,11 +30,11 @@ export class FormularioAlumnoComponent implements OnInit {
   institutosUNGS: Array<InsitutoUNGS>;
 
   constructor(private serviceSolicitud: SolicitudService) {
-    this.serviceSolicitud.solicitarCarreras().subscribe(
+/*     this.serviceSolicitud.solicitarCarreras().subscribe(
       Response => {
         this.institutosUNGS = Response;
-      });
-    // this.institutosUNGS = [{nombre: 'IDEI', carreras: ['Licenciatura en Sistemas']}];
+      }); */
+    this.institutosUNGS = [{nombre: 'IDEI', carreras: ['Licenciatura en Sistemas']}];
   }
 
   ngOnInit() {

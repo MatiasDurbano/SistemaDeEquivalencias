@@ -52,7 +52,7 @@ export class VistaAprobacionComponent implements OnInit {
   materias: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
   solicitud: Solicitud;
 
-  displayedColumns: string[] = ['nombre', 'institutoOrigen', 'anoAprobacion', 'cargaHoraria'];
+  displayedColumns: string[] = ['nombre', 'institutoOrigen', 'anoAprobacion', 'cargaHoraria', 'descarga'];
   dataSource: Array<AsignaturaEquivalente>;
 
   opciones: Aprobacion[] = [
@@ -87,7 +87,9 @@ export class VistaAprobacionComponent implements OnInit {
     if (this.aprobacion.value !== 'aprobado' && this.razon.invalid) {
       alert('Por favor, escriba una razon');
     } else {
-      console.log('hola');
+      this.solicitud.asignaturasUNGS[0].setComentario(this.aprobacion.value);
+      this.solicitud.asignaturasUNGS[0].setEstado(this.razon.value);
+      console.log(this.solicitud);
     }
   }
 }

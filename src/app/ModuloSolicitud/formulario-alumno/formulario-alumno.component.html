@@ -77,10 +77,18 @@
     </mat-form-field>
   </div>
   <div class="fila">
-    <input type="file" (change)="leerArchivoDocumentacion($event)" accept=".pdf">
+    <div><p class="texto">Certificado de Conducta:</p></div>
+    <div class="upload-btn-wrapper">
+      <button class="btn">Subir Archivo</button>
+      <input type="file" name="myfile" (change)="leerArchivoDocumentacion($event)" accept=".pdf"/>
+    </div>
   </div>
   <div class="fila">
-    <input type="file" (change)="leerArchivoAnalitico($event)" accept=".pdf">
+    <div><p class="texto">Analitico de Universidad anterior:</p></div>
+    <div class="upload-btn-wrapper">
+      <button class="btn">Subir Archivo</button>
+      <input type="file" name="myfile" (change)="leerArchivoAnalitico($event)" accept=".pdf"/>
+    </div>
   </div>
   <div>
     <re-captcha 

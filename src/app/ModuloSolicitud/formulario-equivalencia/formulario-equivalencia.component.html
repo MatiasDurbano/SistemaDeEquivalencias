@@ -28,7 +28,11 @@
     </div>
   </div>
   <div class="fila">
-    <input type="file" (change)="leerArchivo($event)" accept=".pdf">
+    <div><p class="texto">Plan de estudio:</p></div>
+    <div class="upload-btn-wrapper">
+      <button class="btn">Subir Archivo</button>
+      <input type="file" name="myfile" (change)="leerArchivo($event)" accept=".pdf"/>
+    </div>
   </div>
 </form>
 <div class="boton">

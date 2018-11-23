@@ -29,6 +29,13 @@ export class TablaAsignaturaEquivalenteComponent implements OnInit {
     this.dataSource = new DataSourceTablaAsignaturaEquivalente();
   }
 
+  limpiar() {
+    while (ELEMENT_DATA.length !== 0) {
+      ELEMENT_DATA.pop();
+    }
+    this.dataSource = new DataSourceTablaAsignaturaEquivalente();
+  }
+
   estaVacio(): boolean {
     if (ELEMENT_DATA.length === 0) {
       return true;
@@ -38,7 +45,8 @@ export class TablaAsignaturaEquivalenteComponent implements OnInit {
   }
 
   generarArregloAsignaturaEquivalente(): Array<AsignaturaEquivalente> {
-    const ret = ELEMENT_DATA;
+    const ret = ELEMENT_DATA.concat();
+    console.log(ret);
     return ret;
   }
 
