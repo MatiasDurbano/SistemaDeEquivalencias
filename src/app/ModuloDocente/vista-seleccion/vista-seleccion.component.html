@@ -1,6 +1,6 @@
 <mat-tab-group [selectedIndex]="selected">
   <mat-tab label="Solicitudes pendientes">
-    <table mat-table [dataSource]="solicitudesFiltradas" class="mat-elevation-z8">
+    <table mat-table [dataSource]="solicitudesFiltradas" class="mat-elevation-z8" *ngIf="show">
 
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->

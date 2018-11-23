@@ -68,6 +68,8 @@ export class VistaSeleccionComponent implements OnInit {
       
   }
 
+  show = false;
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.email=new Email(params['Email']);
@@ -75,6 +77,7 @@ export class VistaSeleccionComponent implements OnInit {
    
    this.buscarMateriasDocente().then(result=>{
           this.buscarSolicitudes(<ListaMateria>result);
+          this.show = true;
     });
         
   }

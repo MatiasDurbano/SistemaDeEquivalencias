@@ -76,7 +76,6 @@ export class VistaAprobacionComponent implements OnInit {
   cargarSolicitud(solicitud: Solicitud) {
 
     this.solicitud = solicitud;
-    
     this.dataSource = this.solicitud.asignaturaUngs[0].equivalencias;
   }
 
