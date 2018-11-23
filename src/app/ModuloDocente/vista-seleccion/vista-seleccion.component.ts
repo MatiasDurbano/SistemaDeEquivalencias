@@ -5,8 +5,9 @@ import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/Asignatura
 import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 import { VistaAprobacionComponent } from '../vista-aprobacion/vista-aprobacion.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ListaMateria } from 'src/app/model/ListaMateria';
+import { Email } from 'src/app/model/Email';
 
 @Component({
   selector: 'app-vista-seleccion',
@@ -47,6 +48,8 @@ export class VistaSeleccionComponent implements OnInit {
     [this.sor, this.redes]
   );
 
+  @ViewChild(VistaAprobacionComponent) vistaAprobacion: VistaAprobacionComponent;
+  
   materias: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
   solicitud: Solicitud;
 
@@ -56,30 +59,49 @@ export class VistaSeleccionComponent implements OnInit {
 
   listaMateriasDocente: Array<String> = ['materia1', 'materia2'];
   listaMaterias: ListaMateria = new ListaMateria();
-  @ViewChild(VistaAprobacionComponent) vistaAprobacion: VistaAprobacionComponent;
   solicitudesFiltradas = new Array<Solicitud>();
-  constructor(private serviceSolicitud: SolicitudService, private router: Router) {
-    this.solicitudes = new Array<Solicitud>();
-    this.materias.push(this.sistemaOperativosII);
-    this.solicitud = new Solicitud (this.maxi, this.materias);
-    this.solicitudes.push(this.solicitud);
 
-    this.filtrarSolicitudes(this.solicitudes, 'Sistemas Operativos II');
-
-
-    this.listaMaterias.set(this.listaMateriasDocente);
-
-    this.serviceSolicitud.solicitarPorMaterias(this.listaMaterias).subscribe(
-      Response => {
-        this.solicitudesFiltradas = Response;
-        console.log("FILTRADO");
-
-        console.log(Response);
-    });
+  email:Email;
+  
+  constructor(private serviceSolicitud: SolicitudService, private router: Router,private route: ActivatedRoute) {
+    
+      
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.email=new Email(params['Email']);
+    });
+   
+   this.buscarMateriasDocente().then(result=>{
+          this.buscarSolicitudes(<ListaMateria>result);
+    });
+        
   }
+
+  buscarSolicitudes(result: ListaMateria){
+    
+    this.serviceSolicitud.solicitarPorMaterias(result).subscribe(
+        Response => {  
+          this.solicitudesFiltradas = Response;
+          
+      });
+    
+    
+  }
+
+  buscarMateriasDocente(){
+  return new Promise((resultado) =>{
+    this.serviceSolicitud.solicitarMateriasDocente(this.email).subscribe(
+      Response =>{
+        console.log("TRAIGO TODAS LAS MATERIAS DEL DOCENTE");
+        console.log(Response)
+        this.listaMaterias=Response;
+        resultado(this.listaMaterias);
+      });
+   });  
+  }
+
 
   filtrarSolicitudes(solicitudes: Array<Solicitud>, docente: string) {
     for (const solicitud of solicitudes) {

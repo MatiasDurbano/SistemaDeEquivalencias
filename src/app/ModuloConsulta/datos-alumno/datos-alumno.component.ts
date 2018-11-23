@@ -6,6 +6,7 @@ import { CodigoAlumno } from '../Clases/CodigoAlumno';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { TablaConsultaComponent } from '../tabla-consulta/tabla-consulta.component';
 import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-datos-alumno',
@@ -20,6 +21,9 @@ export class DatosAlumnoComponent implements OnInit {
   codigoAlumno:CodigoAlumno=new CodigoAlumno();
   solicitud:Solicitud=new Solicitud(null,null);
   listaAsignaturas: Array<AsignaturasUNGS>;
+  restResponse:  RestResponse;
+  
+
   @ViewChild(TablaConsultaComponent) tablaSolicitudes: TablaConsultaComponent;
 
   constructor(private serviceSolicitud: SolicitudService,private route: ActivatedRoute,
@@ -38,26 +42,27 @@ export class DatosAlumnoComponent implements OnInit {
 
 
   cargar(){
-    console.log(this.codigoAlumno);
+    
+    this.restResponse=new RestResponse();
     this.serviceSolicitud.consultarPorCodigo(this.codigoAlumno).subscribe(
       Response => {
-        this.solicitud=Response;
-        
-        console.log(this.solicitud);
-       
+        console.log(Response);
+        this.restResponse=Response;
+        if(this.restResponse.response==200){
+          this.solicitud=<Solicitud>this.restResponse.message;
+          this.mostrar=true;
 
-        this.mostrar=true;
-        
-        
-        this.listaAsignaturas=new Array<AsignaturasUNGS>();
-
-        this.listaAsignaturas=this.solicitud.asignaturasUNGS;
-
-        console.log(this.listaAsignaturas);
-        for(let asignaturaUngs of this.listaAsignaturas){
-            console.log(asignaturaUngs);
-            this.tablaSolicitudes.cargar(asignaturaUngs);
+          this.listaAsignaturas=new Array<AsignaturasUNGS>();
+          this.listaAsignaturas=this.solicitud.asignaturasUNGS;
+         
+          for(let asignaturaUngs of this.listaAsignaturas){
+              this.tablaSolicitudes.cargar(asignaturaUngs);
+            }
           }
+        else{
+          alert("Codigo no encontrado");
+          this.router.navigate(['/consulta']);
+        }
       });
 
   }

@@ -40,7 +40,6 @@ export class TablaConsultaComponent implements OnInit {
     
   }
 
-
 }
 
 export class DataSourceTablaConsulta extends DataSource<AsignaturasUNGS> {

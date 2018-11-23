@@ -59,6 +59,7 @@ const routes: Routes = [
 {path: 'solcitud', component: PasoAPasoSolicitudComponent},
 {path: 'consulta', component: FormCodigoComponent},
 {path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
+{path: 'sesion-docente/:email', component: VistaSeleccionComponent},
 {path: '', component: CuerpoComponent}
 ];
 

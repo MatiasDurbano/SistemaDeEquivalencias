@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { ServiceLoginService } from '../serviceLogin/service-login.service';
 import { userModelo } from '../model/user.model';
+import { RestResponse } from '../model/RestResponse';
+import { UsuarioResponse } from '../model/UsuarioResponse';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +14,8 @@ import { userModelo } from '../model/user.model';
 export class LoginComponent implements OnInit {
 
   private userLogeado: userModelo;
+  restResponse: RestResponse= new RestResponse();
+  usuarioResponse: UsuarioResponse;
 
   constructor(private router: Router, private serviceLogin:ServiceLoginService) { }
   
@@ -29,20 +33,28 @@ export class LoginComponent implements OnInit {
     console.log(this.user.username+' '+this.user.password);
     this.serviceLogin.loginUser(this.user).subscribe(
       Response => {
-        this.userLogeado = Response;
-        console.log(this.userLogeado.tipo)
-        if(this.userLogeado.tipo==1){
-          this.router.navigate(["sesion-docente"]);
-         }
-         if(this.userLogeado.tipo==0){
-          this.gotoInstituto(this.userLogeado);
-       }  
-        },
-      error=> console.log('error',error)
-    );
+        
+        this.restResponse=Response;
+        if(this.restResponse.response==200){
+            this.usuarioResponse =<UsuarioResponse> this.restResponse.message;
+            if(this.usuarioResponse.tipo==1){
+              this.gotoDocente(this.usuarioResponse);
+            }
+            if(this.usuarioResponse.tipo==0){
+              this.gotoInstituto(this.usuarioResponse);
+            }  
+        }
+        else{
+          alert("Usuario y contraseña no encontrado");
+        }
+    
+    });
+  }
+  gotoInstituto(user: UsuarioResponse) {
+    this.router.navigate(['/vista-add-materia/:instituto', { inst :user.instituto}]);
   }
 
-  gotoInstituto(user: userModelo) {
-    this.router.navigate(['/vista-add-materia/:instituto', { inst :user.instituto}]);
+  gotoDocente(user: UsuarioResponse){
+    this.router.navigate(["sesion-docente/:email",{Email :user.email}]);
   }
 }

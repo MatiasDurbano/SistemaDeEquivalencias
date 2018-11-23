@@ -41,10 +41,10 @@ export class SignInDocenteComponent implements OnInit {
          Response => {
           this.restResponse=Response;
           console.log(this.restResponse);
-          if(this.restResponse.responseCode=409){
+          if(this.restResponse.response=409){
             alert('Usuario o nombre y apellido de docente ya registrados')
           }
-          if(this.restResponse.responseCode=200){
+          if(this.restResponse.response=200){
             alert('Registrado exitosamente ')
           }
           
