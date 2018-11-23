@@ -76,19 +76,22 @@ export class VistaSeleccionComponent implements OnInit {
     });
    
    this.buscarMateriasDocente().then(result=>{
-          this.buscarSolicitudes(<ListaMateria>result);
-          this.show = true;
+          this.buscarSolicitudes(<ListaMateria>result).then(resultado=>{
+            this.show=<boolean>resultado;
+          });
     });
         
   }
 
   buscarSolicitudes(result: ListaMateria){
-    
+    return new Promise((resultado) =>{
     this.serviceSolicitud.solicitarPorMaterias(result).subscribe(
         Response => {  
           this.solicitudesFiltradas = Response;
-          
+          resultado(true);    
       });
+      
+    });
     
     
   }
