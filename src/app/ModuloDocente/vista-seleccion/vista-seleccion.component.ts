@@ -90,6 +90,7 @@ export class VistaSeleccionComponent implements OnInit {
     this.serviceSolicitud.solicitarPorMaterias(result).subscribe(
         Response => {  
           this.solicitudesFiltradas = Response;
+          console.log(this.solicitudesFiltradas);
           resultado(true);    
       });
       
@@ -124,6 +125,8 @@ export class VistaSeleccionComponent implements OnInit {
   }
 
   cargar(e: Solicitud) {
+
+    console.log(e);
     this.vistaAprobacion.cargarSolicitud(e);
     this.selected = 1;
   }
