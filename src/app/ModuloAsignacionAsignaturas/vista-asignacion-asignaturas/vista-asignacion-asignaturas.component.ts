@@ -11,7 +11,11 @@ export class VistaAsignacionAsignaturasComponent implements OnInit {
   datasource: Array<Docente> = new Array<Docente>();
   displayedColumns: string[] = ['nombre', 'apellido', 'email'];
 
-  constructor() { }
+  constructor() {
+    this.datasource = [
+      {nombre: 'Oscar', apellido: 'Ernesto', email: 'xD@.com', listaMateria: null},
+    ];
+  }
 
   ngOnInit() {
   }

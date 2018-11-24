@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+.fila {
+    display: flex;
+}
+.izq {
+    width: 100%;
+}
+.der {
+    width: 100%;
+}
