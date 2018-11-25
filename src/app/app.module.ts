@@ -63,7 +63,7 @@ const routes: Routes = [
 {path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
 {path: 'sesion-docente/:email', component: VistaSeleccionComponent},
 {path: 'VistaAsignacion/:instituto', component: VistaAsignacionAsignaturasComponent},
-{path: 'vistaAdmin', component: VistaGeneralComponent},
+{path: 'VistaAdmin/:usuario', component: VistaGeneralComponent},
 {path: '', component: CuerpoComponent}
 ];
 

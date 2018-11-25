@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
               this.gotoDocente(this.usuarioResponse);
             }
             if(this.usuarioResponse.tipo==0){
-              this.gotoInstituto(this.usuarioResponse);
+              this.gotoAdmin(this.usuarioResponse);
             }  
         }
         else{
@@ -50,8 +50,8 @@ export class LoginComponent implements OnInit {
     
     });
   }
-  gotoInstituto(user: UsuarioResponse) {
-    this.router.navigate(['VistaAsignacion/:instituto', { inst :user.instituto}]);
+  gotoAdmin(user: UsuarioResponse) {
+    this.router.navigate(['VistaAdmin/:usuario', { Email :user.email}]);
   }
 
   gotoDocente(user: UsuarioResponse){
