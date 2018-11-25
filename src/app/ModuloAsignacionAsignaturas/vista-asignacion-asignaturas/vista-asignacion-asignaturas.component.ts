@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Docente } from 'src/app/ModuloSolicitud/clases/Docente';
+import { DocenteserviceService } from 'src/app/ServiceDocente/docenteservice.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Instituto } from 'src/app/model/Instituto';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-vista-asignacion-asignaturas',
@@ -8,6 +12,9 @@ import { Docente } from 'src/app/ModuloSolicitud/clases/Docente';
 })
 export class VistaAsignacionAsignaturasComponent implements OnInit {
 
+restResponse: RestResponse;
+
+  instituto: Instituto;
   datasourceDocente: Array<Docente> = new Array<Docente>();
   displayedColumnsDocente: string[] = ['nombre', 'apellido', 'email'];
 
@@ -21,19 +28,44 @@ export class VistaAsignacionAsignaturasComponent implements OnInit {
   docenteActual: Docente;
   asignaturaNueva: string;
 
-  constructor() {
-    // Traer todos los docentes con arreglo de materias incluido
-    this.datasourceDocente = [
-      {nombre: 'Oscar', apellido: 'Ernesto', email: 'xD@.com', asignaturas: ['calculo', 'probabilidad', 'computacion']},
-      {nombre: 'Maxi', apellido: 'Javier', email: 'xD@.com', asignaturas: ['ingieneria', 'historia', 'matematica']},
-    ];
-
-    // Trae todo el arrelgo de materias que maneja ese insituto
-    this.asignaturas = ['calculo', 'probabilidad', 'discreta', 'logica', 'lengua'];
+  constructor(private docenteService :DocenteserviceService,private route: ActivatedRoute,private router: Router) {
+  
   }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.instituto=new Instituto(params['inst']);
+    });
+    this.docenteService.traerDocentes(this.instituto).subscribe(
+      Response =>{
+        console.log("TRAIGO TODOS LOS DOCENTE");
+        console.log(Response)
+        this.restResponse=Response;
+        this.datasourceDocente= <Array<Docente>>this.restResponse.message;
+      });
+
+    this.docenteService.traerInstitutos().subscribe(
+      Response =>{
+        console.log("TRAIGO TODOS LOS DOCENTE");
+        console.log(Response)
+        this.restResponse=Response;
+        this.asignaturas= <Array<string>>this.restResponse.message;
+      });
   }
+
+
+  buscarDocentes(){
+    return new Promise((resultado) =>{
+      this.docenteService.traerDocentes(this.instituto).subscribe(
+        Response =>{
+          console.log("TRAIGO TODOS LOS DOCENTE");
+          console.log(Response)
+          this.datasourceDocente=Response;
+          resultado(this.datasourceDocente);
+        });
+     });  
+    }
+
 
   mostrarAsignaturas(docente: Docente) {
     this.docenteActual = docente;

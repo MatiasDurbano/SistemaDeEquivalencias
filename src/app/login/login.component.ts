@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     });
   }
   gotoInstituto(user: UsuarioResponse) {
-    this.router.navigate(['/vista-add-materia/:instituto', { inst :user.instituto}]);
+    this.router.navigate(['VistaAsignacion/:instituto', { inst :user.instituto}]);
   }
 
   gotoDocente(user: UsuarioResponse){
