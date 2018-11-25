@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
@@ -21,6 +21,7 @@ export class FormCodigoComponent implements OnInit {
 
   codigoAlumno:CodigoAlumno;
  
+  @Input()visible = true;
 
   constructor(private router: Router) { 
   }
