@@ -3,15 +3,17 @@
     <button mat-button [matMenuTriggerFor]="menuSolicitud">Solicitud</button>
     <mat-menu #menuSolicitud="matMenu">
       <button mat-menu-item>Ver solicitudes</button>
+      <button mat-menu-item (click)="verSeguimiento()">Ver Seguimiento</button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="menuDocente">Docente</button>
     <mat-menu #menuDocente="matMenu">
-      <button mat-menu-item>Registrar Docente</button>
-      <button mat-menu-item>Asignar asignaturas</button>
+      <button mat-menu-item (click)="registrarDocente()">Registrar Docente</button>
+      <button mat-menu-item (click)="asignarAsignaturas()">Asignar asignaturas</button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="menuInsituto">Insituto</button>
     <mat-menu #menuInsituto="matMenu">
-      <button mat-menu-item>Agregar Asignaturas</button>
+      <button mat-menu-item (click)="agregarAsignaturas()">Agregar Asignaturas</button>
     </mat-menu>
+    <button mat-button (click)=salir()>Salir</button>
   </mat-toolbar-row>
 </mat-toolbar>

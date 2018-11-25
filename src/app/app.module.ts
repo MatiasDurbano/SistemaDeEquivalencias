@@ -54,7 +54,7 @@ const routes: Routes = [
 {path: 'sesion-docente', component: SesionDocenteComponent},
 {path: 'equivalencia-solicitadas', component: FormMateriaEquivalenciaComponent},
 {path: 'seguimiento-solicitud', component: TablaSeguimientoComponent},
-{path: '11', component: SignInDocenteComponent},
+{path: 'signInDocente', component: SignInDocenteComponent},
 {path: 'login', component: LoginComponent},
 {path: '11111', component: VistaSeleccionComponent},
 {path: '1111', component: VistaAprobacionComponent},
@@ -63,6 +63,7 @@ const routes: Routes = [
 {path: 'datoAlumno/:codigo', component: DatosAlumnoComponent},
 {path: 'sesion-docente/:email', component: VistaSeleccionComponent},
 {path: 'VistaAsignacion/:instituto', component: VistaAsignacionAsignaturasComponent},
+{path: 'vistaAdmin', component: VistaGeneralComponent},
 {path: '', component: CuerpoComponent}
 ];
 
