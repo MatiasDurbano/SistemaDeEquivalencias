@@ -101,10 +101,9 @@ restResponse: RestResponse;
     this.showAsignaturas = false;
   }
 
-  guardar(): Docente {
+  guardar() {
+    //ESTE ES EL DOCENTE YA MODIFICADO PARA USARLO
     this.docenteActual.asignaturas = this.datasourceAsignaturas;
-    console.log(this.docenteActual);
-    return this.docenteActual;
   }
 
 }
