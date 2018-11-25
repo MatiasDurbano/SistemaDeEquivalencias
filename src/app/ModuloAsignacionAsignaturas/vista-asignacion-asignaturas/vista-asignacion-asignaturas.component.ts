@@ -22,11 +22,13 @@ export class VistaAsignacionAsignaturasComponent implements OnInit {
   asignaturaNueva: string;
 
   constructor() {
+    // Traer todos los docentes con arreglo de materias incluido
     this.datasourceDocente = [
       {nombre: 'Oscar', apellido: 'Ernesto', email: 'xD@.com', asignaturas: ['calculo', 'probabilidad', 'computacion']},
       {nombre: 'Maxi', apellido: 'Javier', email: 'xD@.com', asignaturas: ['ingieneria', 'historia', 'matematica']},
     ];
 
+    // Trae todo el arrelgo de materias que maneja ese insituto
     this.asignaturas = ['calculo', 'probabilidad', 'discreta', 'logica', 'lengua'];
   }
 
