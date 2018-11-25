@@ -45,6 +45,7 @@ import { TablaConsultaComponent } from './ModuloConsulta/tabla-consulta/tabla-co
 import { DatosAlumnoComponent } from './ModuloConsulta/datos-alumno/datos-alumno.component';
 import { CuerpoComponent } from './moduloVentanaPrincipal/cuerpo/cuerpo.component';
 import { VistaAsignacionAsignaturasComponent } from './ModuloAsignacionAsignaturas/vista-asignacion-asignaturas/vista-asignacion-asignaturas.component';
+import { VistaGeneralComponent } from './ModuloAdmin/vista-general/vista-general.component';
 
 
 const routes: Routes = [
@@ -103,7 +104,8 @@ const routes: Routes = [
     TablaConsultaComponent,
     DatosAlumnoComponent,
     CuerpoComponent,
-    VistaAsignacionAsignaturasComponent
+    VistaAsignacionAsignaturasComponent,
+    VistaGeneralComponent
   ],
   imports: [
     BrowserModule,

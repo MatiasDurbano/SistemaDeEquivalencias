@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menuSolicitud">Solicitud</button>
+    <mat-menu #menuSolicitud="matMenu">
+      <button mat-menu-item>Ver solicitudes</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuDocente">Docente</button>
+    <mat-menu #menuDocente="matMenu">
+      <button mat-menu-item>Registrar Docente</button>
+      <button mat-menu-item>Asignar asignaturas</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuInsituto">Insituto</button>
+    <mat-menu #menuInsituto="matMenu">
+      <button mat-menu-item>Agregar Asignaturas</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
