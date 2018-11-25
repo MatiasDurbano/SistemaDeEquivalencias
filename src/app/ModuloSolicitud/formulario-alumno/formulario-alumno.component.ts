@@ -52,7 +52,7 @@ export class FormularioAlumnoComponent implements OnInit {
       this.documentacion,
       this.analitico
     );
-    console.log(ret.saludar());
+    console.log(this.documentacion);
     return ret;
   }
 

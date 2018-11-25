@@ -3,6 +3,8 @@ import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS'
 import { DataSource } from '@angular/cdk/table';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { saveAs } from 'file-saver';
+import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 
 const ELEMENT_DATA: Array<AsignaturasUNGS> = new Array<AsignaturasUNGS>();
 
@@ -35,9 +37,10 @@ export class TablaConsultaComponent implements OnInit {
   cargar(asignatura:AsignaturasUNGS){
     ELEMENT_DATA.push(asignatura);
 
-    this.dataSource = new DataSourceTablaConsulta();
-    
-    
+    this.dataSource = new DataSourceTablaConsulta(); 
+  }
+  getPlanDeEstudio(e: AsignaturaEquivalente) {
+    saveAs(e.documentacion, 'test.pdf');
   }
 
 }

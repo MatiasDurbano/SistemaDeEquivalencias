@@ -75,9 +75,9 @@ export class DatosAlumnoComponent implements OnInit {
       saveAs(this.solicitud.alumno.analitico, 'analitico.pdf');
   }
 
-  getCertificado(){
+  getDocumentacion(){
     console.log(this.solicitud.alumno);
-      saveAs(this.solicitud.alumno.documentacion, 'analitico.pdf');
+      saveAs(this.solicitud.alumno.documentacion, 'documentacion.pdf');
   }
 
 }

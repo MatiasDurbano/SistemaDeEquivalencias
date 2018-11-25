@@ -25,6 +25,11 @@
           <div>
             <td><strong>Comenario : </strong>{{element.coemntario}}</td>
           </div>
+        
+          <!--ACA-->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="getPlanDeEstudio(row)"></tr>
+
         </div>
       </div>
     </td>
