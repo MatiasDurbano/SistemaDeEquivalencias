@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Docente } from 'src/app/ModuloSolicitud/clases/Docente';
 import { DocenteserviceService } from 'src/app/ServiceDocente/docenteservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class VistaAsignacionAsignaturasComponent implements OnInit {
 
 restResponse: RestResponse;
 
-  instituto: Instituto;
+  @Input()instituto: Instituto;
   datasourceDocente: Array<Docente> = new Array<Docente>();
   displayedColumnsDocente: string[] = ['nombre', 'apellido', 'email'];
 
@@ -36,10 +36,10 @@ restResponse: RestResponse;
   
   }
 
-  ngOnInit() {
+  ngOnInit() {/* 
     this.route.params.subscribe(params => {
       this.instituto=new Instituto(params['inst']);
-    });
+    }); */
     this.docenteService.traerDocentes(this.instituto).subscribe(
       Response =>{
         console.log("TRAIGO TODOS LOS DOCENTE");

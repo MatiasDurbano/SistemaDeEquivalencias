@@ -11,36 +11,31 @@ import { RestResponse } from 'src/app/model/RestResponse';
   templateUrl: './vista-general.component.html',
   styleUrls: ['./vista-general.component.css']
 })
- 
-
 
 export class VistaGeneralComponent implements OnInit {
-  email:Email;
+  email: Email;
   administrador: Administrador;
-  restResponse : RestResponse;
+  restResponse: RestResponse;
 
   constructor(private serviceAdmin: AdminserviceService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.email=new Email(params['Email']);
+      this.email = new Email(params['Email']);
     });
-   this.buscarAdmin().then(result=>{
+   this.buscarAdmin().then(result => {
     console.log(result);
     });
-
-      
   }
 
-  buscarAdmin(){
-     return new Promise((resultado) =>{
+  buscarAdmin() {
+     return new Promise((resultado) => {
       this.serviceAdmin.traerAdmin(this.email).subscribe(
-        Response =>{
-          this.restResponse=Response;
-          this.administrador=<Administrador>this.restResponse.message;
+        Response => {
+          this.restResponse = Response;
+          this.administrador = <Administrador>this.restResponse.message;
           resultado(this.administrador);
-        })
-        
+        });
       });
   }
 
