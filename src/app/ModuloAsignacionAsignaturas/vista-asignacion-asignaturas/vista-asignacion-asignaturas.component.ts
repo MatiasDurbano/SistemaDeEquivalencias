@@ -4,6 +4,8 @@ import { DocenteserviceService } from 'src/app/ServiceDocente/docenteservice.ser
 import { ActivatedRoute, Router } from '@angular/router';
 import { Instituto } from 'src/app/model/Instituto';
 import { RestResponse } from 'src/app/model/RestResponse';
+import { ListaMateria } from 'src/app/model/ListaMateria';
+import { MateriaPost } from 'src/app/model/MateriaPost';
 
 @Component({
   selector: 'app-vista-asignacion-asignaturas',
@@ -22,6 +24,8 @@ restResponse: RestResponse;
   displayedColumnsAsignaturas: string[] = ['nombre', 'eliminar'];
 
   asignaturas: Array<string> = new Array<string>();
+  materias: MateriaPost= new MateriaPost();
+
 
   showAsignaturas = false;
 
@@ -44,13 +48,17 @@ restResponse: RestResponse;
         this.datasourceDocente= <Array<Docente>>this.restResponse.message;
       });
 
-    this.docenteService.traerInstitutos().subscribe(
-      Response =>{
-        console.log("TRAIGO TODOS LOS DOCENTE");
-        console.log(Response)
-        this.restResponse=Response;
-        this.asignaturas= <Array<string>>this.restResponse.message;
-      });
+
+      this.docenteService.traerMateriasPorInstituto(this.instituto).subscribe(
+        Response =>{
+          
+          this.restResponse=Response;
+          this.materias=<MateriaPost>this.restResponse.message;
+          console.log(this.restResponse.message);
+          this.asignaturas=this.materias.materias;
+          console.log("ASIGNATURAS");
+          console.log(this.asignaturas)
+        });
   }
 
 
@@ -104,6 +112,10 @@ restResponse: RestResponse;
   guardar() {
     //ESTE ES EL DOCENTE YA MODIFICADO PARA USARLO
     this.docenteActual.asignaturas = this.datasourceAsignaturas;
+    this.docenteService.guardarDocenteModificado(this.docenteActual).subscribe(
+      Response=>{
+        console.log(Response);
+      });
   }
 
 }
