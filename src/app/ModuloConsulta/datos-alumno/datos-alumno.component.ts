@@ -7,6 +7,7 @@ import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { TablaConsultaComponent } from '../tabla-consulta/tabla-consulta.component';
 import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS';
 import { RestResponse } from 'src/app/model/RestResponse';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-datos-alumno',
@@ -52,6 +53,8 @@ export class DatosAlumnoComponent implements OnInit {
           this.solicitud=<Solicitud>this.restResponse.message;
           this.mostrar=true;
 
+          console.log(this.solicitud);
+
           this.listaAsignaturas=new Array<AsignaturasUNGS>();
           this.listaAsignaturas=this.solicitud.asignaturasUNGS;
          
@@ -65,6 +68,16 @@ export class DatosAlumnoComponent implements OnInit {
         }
       });
 
+  }
+
+  getAnalitico(){
+    console.log(this.solicitud.alumno);
+      saveAs(this.solicitud.alumno.analitico, 'analitico.pdf');
+  }
+
+  getCertificado(){
+    console.log(this.solicitud.alumno);
+      saveAs(this.solicitud.alumno.documentacion, 'analitico.pdf');
   }
 
 }

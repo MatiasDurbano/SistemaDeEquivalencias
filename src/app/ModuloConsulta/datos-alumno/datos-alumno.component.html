@@ -49,6 +49,12 @@
         <label >{{solicitud.carrera}}</label>
     </div>
 
+
+    <div>
+        <button mat-raised-button (click)="getAnalitico()" color="primary">Descargar analitico</button>
+        <button mat-raised-button (click)="getConstancia()" color="primary">Descargar Constancia</button>
+    </div>
+
 </div>
     <div class="tabla">
         <app-tabla-consulta></app-tabla-consulta>
