@@ -17,6 +17,8 @@ export class VistaGeneralComponent implements OnInit {
   administrador: Administrador;
   restResponse: RestResponse;
 
+  mostrarAsignarAsignatura = true;
+
   constructor(private serviceAdmin: AdminserviceService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -48,7 +50,7 @@ export class VistaGeneralComponent implements OnInit {
   }
 
   asignarAsignaturas() {
-    this.router.navigate(['/VistaAsignacion/:instituto', { instituto : 'algo'}]);
+    this.mostrarAsignarAsignatura = false;
   }
 
   agregarAsignaturas() {

@@ -17,4 +17,11 @@
     <button mat-button (click)=salir()>Salir</button>
   </mat-toolbar-row>
 </mat-toolbar>
-<app-vista-asignacion-asignaturas [instituto]="administrador.instituto"></app-vista-asignacion-asignaturas>
+<div *ngIf="mostrarAsignarAsignatura else asignarAsiganturas ">
+
+</div>
+<ng-template #asignarAsiganturas>
+  <div>
+    <app-vista-asignacion-asignaturas [instituto]="administrador.instituto"></app-vista-asignacion-asignaturas>
+  </div>
+</ng-template>
