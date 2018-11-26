@@ -17,17 +17,20 @@ export class VistaGeneralComponent implements OnInit {
   administrador: Administrador;
   restResponse: RestResponse;
 
+  mostrarVerSeguimiento = true;
+  mostrarDocente = true;
   mostrarAsignarAsignatura = true;
+  mostrarAgregarAsignatura = true;
 
   constructor(private serviceAdmin: AdminserviceService, private router: Router,private route: ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() {/* 
     this.route.params.subscribe(params => {
       this.email = new Email(params['Email']);
     });
    this.buscarAdmin().then(result => {
     console.log(result);
-    });
+    }); */
   }
 
   buscarAdmin() {
@@ -42,21 +45,36 @@ export class VistaGeneralComponent implements OnInit {
   }
 
   verSeguimiento() {
-    this.router.navigate(['consulta']);
+    // this.router.navigate(['consulta']);
+    this.mostrarDocente = true;
+    this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarAsignatura = true;
+    this.mostrarVerSeguimiento = false;
   }
 
   registrarDocente() {
-    this.router.navigate(['signInDocente']);
+    this.mostrarVerSeguimiento = true;
+    this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarAsignatura = true;
+    this.mostrarDocente = false;
   }
 
   asignarAsignaturas() {
+    this.mostrarVerSeguimiento = true;
+    this.mostrarDocente = true;
+    this.mostrarAgregarAsignatura = true;
     this.mostrarAsignarAsignatura = false;
   }
 
   agregarAsignaturas() {
-    this.router.navigate(['vista-add-materia/:instituto', { instituto : 'algo'}]);
+    // this.router.navigate(['vista-add-materia/:instituto', { instituto : 'algo'}]);
+    this.mostrarVerSeguimiento = true;
+    this.mostrarDocente = true;
+    this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarAsignatura = false;
   }
 
   salir() {
+    this.router.navigate(['']);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { Carrera } from 'src/app/model/Carrera';
 import { TablaMateriasComponent } from '../tabla-materias/tabla-materias.component';
@@ -22,7 +22,7 @@ export class VistaMateriaComponent implements OnInit {
   indice: number=0;
   indiceCarrera: number;
 
-  instituto: Instituto=new Instituto("");
+  @Input()instituto: Instituto;
   prueba : string;
   plan: string = null;
   carreraMateria:CarreraMateria;
@@ -42,9 +42,6 @@ export class VistaMateriaComponent implements OnInit {
     private router: Router){}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.instituto=new Instituto(params['inst']);
-    });
     this.materiaService.cargar(this.instituto).subscribe(
       Response=>{
         this.restResponse=Response;

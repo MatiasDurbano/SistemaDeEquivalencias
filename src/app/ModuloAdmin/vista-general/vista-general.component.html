@@ -17,11 +17,31 @@
     <button mat-button (click)=salir()>Salir</button>
   </mat-toolbar-row>
 </mat-toolbar>
-<div *ngIf="mostrarAsignarAsignatura else asignarAsiganturas ">
 
-</div>
+<div *ngIf="mostrarAsignarAsignatura else asignarAsiganturas "></div>
 <ng-template #asignarAsiganturas>
   <div>
     <app-vista-asignacion-asignaturas [instituto]="administrador.instituto"></app-vista-asignacion-asignaturas>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarDocente else registrarDocentes "></div>
+<ng-template #registrarDocentes>
+  <div>
+    <app-sign-in-docente></app-sign-in-docente>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarAgregarAsignatura else agregarAsignatura "></div>
+<ng-template #agregarAsignatura>
+  <div>
+    <app-vista-materia [instituto]="administrador.instituto"></app-vista-materia>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarVerSeguimiento else verSeguimientos "></div>
+<ng-template #verSeguimientos>
+  <div>
+    <app-form-codigo [visible]="false"></app-form-codigo>
   </div>
 </ng-template>
