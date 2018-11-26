@@ -13,4 +13,9 @@ export class AdminserviceService {
   {
   return this.http.post('obtenerAdmin',email);
   }
+
+  traerSolicitudes(instituto): Observable<any>
+  {
+  return this.http.post('solicitudesAdmin',instituto);
+  }
 }
