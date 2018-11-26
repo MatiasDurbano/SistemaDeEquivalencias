@@ -40,6 +40,8 @@ export class VerTotalSolicitudesComponent implements OnInit {
       this.solicitudes=<Array<Solicitud>>resultado;
       this.datasourse=this.solicitudes;
       console.log(this.datasourse);
+      this.showtable = true;
+      this.showcargando = false;
     });
   }
 
