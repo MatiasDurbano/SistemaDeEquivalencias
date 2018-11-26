@@ -17,6 +17,7 @@ export class VistaGeneralComponent implements OnInit {
   administrador: Administrador;
   restResponse: RestResponse;
 
+  mostrarTotalAsignaturas = true;
   mostrarVerSeguimiento = true;
   mostrarDocente = true;
   mostrarAsignarAsignatura = true;
@@ -46,9 +47,18 @@ export class VistaGeneralComponent implements OnInit {
       });
   }
 
+  totalAsignaturas() {
+    this.mostrarDocente = true;
+    this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarAsignatura = true;
+    this.mostrarVerSeguimiento = true;
+    this.mostrarTotalAsignaturas = false;
+  }
+
 
   verSeguimiento() {
     // this.router.navigate(['consulta']);
+    this.mostrarTotalAsignaturas = true;
     this.mostrarDocente = true;
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = true;
@@ -56,6 +66,7 @@ export class VistaGeneralComponent implements OnInit {
   }
 
   registrarDocente() {
+    this.mostrarTotalAsignaturas = true;
     this.mostrarVerSeguimiento = true;
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = true;
@@ -63,6 +74,7 @@ export class VistaGeneralComponent implements OnInit {
   }
 
   asignarAsignaturas() {
+    this.mostrarTotalAsignaturas = true;
     this.mostrarVerSeguimiento = true;
     this.mostrarDocente = true;
     this.mostrarAgregarAsignatura = true;
@@ -71,6 +83,7 @@ export class VistaGeneralComponent implements OnInit {
 
   agregarAsignaturas() {
     // this.router.navigate(['vista-add-materia/:instituto', { instituto : 'algo'}]);
+    this.mostrarTotalAsignaturas = true;
     this.mostrarVerSeguimiento = true;
     this.mostrarDocente = true;
     this.mostrarAsignarAsignatura = true;

@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { MockSolicitudes, MockAlumno } from 'src/app/ModuloSolicitud/clases/Mock';
 import { VerDetallesComponent } from '../ver-detalles/ver-detalles.component';
+import { Instituto } from 'src/app/model/Instituto';
 
 @Component({
   selector: 'app-ver-total-solicitudes',
@@ -13,6 +14,8 @@ export class VerTotalSolicitudesComponent implements OnInit {
   mockSolicitud: MockSolicitudes = new MockSolicitudes();
 
   //////////////////////////////////////////////////////////////////////////
+
+  @Input()instituto: Instituto;
 
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'carrera'];
   datasourse = new Array<Solicitud>();
