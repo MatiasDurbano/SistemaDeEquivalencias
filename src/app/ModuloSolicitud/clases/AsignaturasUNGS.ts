@@ -13,7 +13,7 @@ export class AsignaturasUNGS {
         this.comentario = '';
     }
 
-    setEstado(estado: string) {
+/*     setEstado(estado: string) {
         this.estado = estado;
     }
 
@@ -23,5 +23,5 @@ export class AsignaturasUNGS {
 
     saludar(): string {
         return this.materiaUngs;
-    }
+    } */
 }

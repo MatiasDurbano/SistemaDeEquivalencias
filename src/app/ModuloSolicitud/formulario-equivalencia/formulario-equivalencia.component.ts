@@ -41,7 +41,7 @@ export class FormularioEquivalenciaComponent implements OnInit {
       this.formAsignaturaEquivalente.get('cargaHoraria').value,
       this.documentacion
     );
-    console.log(ret.saludar());
+    console.log(ret);
     return ret;
   }
 
@@ -79,7 +79,7 @@ export class FormularioEquivalenciaComponent implements OnInit {
   }
 
   saludar() {
-    console.log(this.generarAsignaturaEquivalente().saludar());
+    console.log(this.generarAsignaturaEquivalente());
   }
 
   leerArchivo(evt: any) {

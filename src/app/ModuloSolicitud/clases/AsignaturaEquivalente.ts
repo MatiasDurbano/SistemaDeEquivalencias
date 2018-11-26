@@ -13,12 +13,4 @@ export class AsignaturaEquivalente {
         this.cargaHoraria = cargaHoraria;
         this.documentacion = documentacion;
     }
-
-    saludar(): string {
-        return `nombre: ${this.nombre},
-         institutoOrigen: ${this.institutoOrigen},
-         anoAprobacion: ${this.anoAprobacion},
-         cargaHoraria: ${this.cargaHoraria},
-         documentacion: ${this.documentacion}`;
-    }
 }
