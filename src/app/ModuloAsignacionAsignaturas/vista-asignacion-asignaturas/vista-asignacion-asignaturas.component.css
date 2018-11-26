@@ -1,6 +1,14 @@
 table {
     width: 100%;
 }
+select {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
 .fila {
     display: flex;
 }
@@ -8,5 +16,22 @@ table {
     width: 100%;
 }
 .der {
+    width: 60%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.filaComponente {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.izqComponente {
     width: 100%;
+}
+
+.derComponente {
+    width: 30%;
+    margin-left: 50px;
 }

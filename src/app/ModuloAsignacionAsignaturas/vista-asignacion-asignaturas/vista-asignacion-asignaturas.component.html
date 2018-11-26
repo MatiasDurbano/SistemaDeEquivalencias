@@ -29,16 +29,22 @@
     </table>
   </div>
   <div class="der" *ngIf="showAsignaturas">
-    <div>
+    <div class="filaComponente">
+      <h2>Detalle: </h2>
+    </div>
+    <div >
       <label><strong>Nombre: </strong> {{docenteActual.nombre}} </label>
     </div>
-    <div>
+    <div >
       <label><strong>Apellido: </strong> {{docenteActual.apellido}} </label>
     </div>
-    <div>
+    <div >
       <label><strong>Email: </strong> {{docenteActual.email}} </label>
     </div>
-    <div>
+    <div class="filaComponente">
+      <h2>Asignaturas: </h2>
+    </div>
+    <div class="filaComponente">
       <table mat-table [dataSource]="datasourceAsignaturas" class="mat-elevation-z8">
 
         <ng-container matColumnDef="nombre">
@@ -56,26 +62,27 @@
         (click)="borrarAsignatura(row)"></tr>
       </table>
     </div>
-    <div>
-      <mat-form-field>
-        <mat-select placeholder="Asignatura" [(ngModel)]="asignaturaNueva">
-          <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura">
-            {{asignatura}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div>
-        <button mat-raised-button color="primary" (click)="agregarAsignatura()">Agregar</button>
-    </div>
-    <div>
-      <div>
-          <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+    <div class="filaComponente">
+      <div class="izqComponente">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Asignatura" [(ngModel)]="asignaturaNueva">
+            <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura">
+              {{asignatura}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
-      <div>
+      <div class="derComponente">
+          <button mat-raised-button color="primary" (click)="agregarAsignatura()">Agregar</button>
+      </div>
+    </div>
+    <div class="filaComponente">
+      <div class="izqComponente">
           <button mat-raised-button color="warn" (click)="ocultar()">Cerrar</button>
       </div>
+      <div class="derComponente">
+          <button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+      </div>
     </div>
-
   </div>
 </div>

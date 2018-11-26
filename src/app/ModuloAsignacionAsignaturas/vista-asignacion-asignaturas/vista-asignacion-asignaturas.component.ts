@@ -33,7 +33,6 @@ restResponse: RestResponse;
   asignaturaNueva: string;
 
   constructor(private docenteService :DocenteserviceService,private route: ActivatedRoute,private router: Router) {
-  
   }
 
   ngOnInit() {
@@ -117,6 +116,7 @@ restResponse: RestResponse;
       Response=>{
         console.log(Response);
       });
+    this.ocultar();
   }
 
 }
