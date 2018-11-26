@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { MockSolicitudes, MockAlumno } from 'src/app/ModuloSolicitud/clases/Mock';
 import { VerDetallesComponent } from '../ver-detalles/ver-detalles.component';
-import { Administrador } from '../model/Administrador';
+import { Instituto } from 'src/app/model/Instituto';
 import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
 import { RestResponse } from 'src/app/model/RestResponse';
 
@@ -13,10 +13,11 @@ import { RestResponse } from 'src/app/model/RestResponse';
 })
 export class VerTotalSolicitudesComponent implements OnInit {
   
-  @Input()administrador: Administrador;
   mockSolicitud: MockSolicitudes = new MockSolicitudes();
 
   //////////////////////////////////////////////////////////////////////////
+
+  @Input()instituto: Instituto;
 
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'carrera'];
   datasourse = new Array<Solicitud>();
@@ -39,7 +40,7 @@ export class VerTotalSolicitudesComponent implements OnInit {
     this.TraerSolicitudes();
   }
   TraerSolicitudes(){
-    this.serviceAdmin.traerSolicitudes(this.administrador.instituto).subscribe(
+    this.serviceAdmin.traerSolicitudes(this.instituto).subscribe(
       Response=>{
         this.restResponse=Response;
         console.log(this.restResponse);

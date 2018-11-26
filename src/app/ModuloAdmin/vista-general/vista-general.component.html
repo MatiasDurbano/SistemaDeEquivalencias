@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <button mat-button [matMenuTriggerFor]="menuSolicitud">Solicitud</button>
     <mat-menu #menuSolicitud="matMenu">
-      <button mat-menu-item>Ver solicitudes</button>
+      <button mat-menu-item (click)="totalAsignaturas()">Ver solicitudes</button>
       <button mat-menu-item (click)="verSeguimiento()">Ver Seguimiento</button>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="menuDocente">Docente</button>
@@ -17,6 +17,13 @@
     <button mat-button (click)=salir()>Salir</button>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div *ngIf="mostrarTotalAsignaturas else totalesAsignaturas "></div>
+<ng-template #totalesAsignaturas>
+  <div>
+    <app-ver-total-solicitudes [instituto]="administrador.instituto"></app-ver-total-solicitudes>
+  </div>
+</ng-template>
 
 <div *ngIf="mostrarAsignarAsignatura else asignarAsiganturas "></div>
 <ng-template #asignarAsiganturas>
