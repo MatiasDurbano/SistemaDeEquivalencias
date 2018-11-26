@@ -39,9 +39,6 @@ export class TablaConsultaComponent implements OnInit {
 
     this.dataSource = new DataSourceTablaConsulta(); 
   }
-  getPlanDeEstudio(e: AsignaturaEquivalente) {
-    saveAs(e.documentacion, 'test.pdf');
-  }
 
 }
 

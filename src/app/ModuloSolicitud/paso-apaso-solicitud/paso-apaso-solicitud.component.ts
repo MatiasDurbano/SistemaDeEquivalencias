@@ -3,6 +3,7 @@ import { FormularioAlumnoComponent } from '../formulario-alumno/formulario-alumn
 import { FormularioEquivalenciaComponent } from '../formulario-equivalencia/formulario-equivalencia.component';
 import { Solicitud } from '../clases/Solicitud';
 import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 
 @Component({
@@ -15,6 +16,8 @@ export class PasoAPasoSolicitudComponent implements OnInit {
 
   @ViewChild(FormularioAlumnoComponent) formularioAlumno: FormularioAlumnoComponent;
   @ViewChild(FormularioEquivalenciaComponent) formularioEquivalencia: FormularioEquivalenciaComponent;
+
+  restResponse: RestResponse;
 
   constructor(private serviceSolicitud: SolicitudService) { }
 
@@ -29,13 +32,12 @@ export class PasoAPasoSolicitudComponent implements OnInit {
 
     this.serviceSolicitud.registrarSolicitud(ret).subscribe(
       Response => {
-        const respuesta: String = Response;
-        if(respuesta=="0"){
-         alert("ya existe solicitudes para ese numero de legajo") 
+        this.restResponse=Response;
+        if(this.restResponse.response==200){
+          alert("El codigo de seguimiento es: " +this.restResponse.message)
         }
         else{
-          alert("Codigo de segumiento: "+ respuesta) 
-          
+          alert(this.restResponse.message);
         }
       })
     return ret;

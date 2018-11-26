@@ -7,6 +7,7 @@ import { MateriaserviceService } from 'src/app/ServiceMateria/materiaservice.ser
 import { Instituto } from 'src/app/model/Instituto';
 import { Materia } from 'src/app/model/Materia';
 import { CarreraMateria } from 'src/app/model/CarreraMateria';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 
 @Component({
@@ -26,6 +27,8 @@ export class VistaMateriaComponent implements OnInit {
   plan: string = null;
   carreraMateria:CarreraMateria;
 
+  restResponse: RestResponse;
+
   formCarrera: FormGroup = new FormGroup({
     carrera: new FormControl('', Validators.required),
     nombreMateria : new FormControl('', Validators.required),
@@ -44,7 +47,8 @@ export class VistaMateriaComponent implements OnInit {
     });
     this.materiaService.cargar(this.instituto).subscribe(
       Response=>{
-        this.Carreras=Response;
+        this.restResponse=Response;
+        this.Carreras=<Array<Carrera>>this.restResponse.message;
       })
   }
   cargar(event: any){

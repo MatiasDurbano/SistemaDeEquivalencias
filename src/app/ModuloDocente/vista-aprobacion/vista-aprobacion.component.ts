@@ -5,6 +5,7 @@ import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS'
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { saveAs } from 'file-saver';
+import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 
 export interface Aprobacion {
   value: string;
@@ -64,7 +65,7 @@ export class VistaAprobacionComponent implements OnInit {
   aprobacion: FormControl = new FormControl('', Validators.required);
   razon: FormControl = new FormControl('', Validators.required);
 
-  constructor() {
+  constructor(private serviceSolicitud: SolicitudService) {
     this.materias.push(this.sistemaOperativosII);
     this.solicitud = new Solicitud (this.maxi, this.materias);
     this.dataSource = this.solicitud.asignaturasUNGS[0].equivalencias;
@@ -87,9 +88,14 @@ export class VistaAprobacionComponent implements OnInit {
     if (this.aprobacion.value !== 'aprobado' && this.razon.invalid) {
       alert('Por favor, escriba una razon');
     } else {
-      this.solicitud.asignaturasUNGS[0].setComentario(this.aprobacion.value);
-      this.solicitud.asignaturasUNGS[0].setEstado(this.razon.value);
+      this.solicitud.asignaturasUNGS[0].comentario=this.razon.value;
+      this.solicitud.asignaturasUNGS[0].estado=this.aprobacion.value;
       console.log(this.solicitud);
+      this.serviceSolicitud.actualizarSolicitud(this.solicitud).subscribe(
+       Response=>{
+        console.log(Response);
+       });
+      
     }
   }
 }

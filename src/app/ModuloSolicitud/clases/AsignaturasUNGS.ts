@@ -1,27 +1,27 @@
 import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 
 export class AsignaturasUNGS {
-    materiaUngs: string;
+    materiaUngs: String;
     equivalencias: Array<AsignaturaEquivalente>;
-    estado: string;
-    comentario: string;
+    estado: String;
+    comentario: String;
 
-    constructor(nombre: string, equivalencias: Array<AsignaturaEquivalente>) {
+    constructor(nombre: String, equivalencias: Array<AsignaturaEquivalente>) {
         this.materiaUngs = nombre;
         this.equivalencias = equivalencias;
         this.estado = '';
         this.comentario = '';
     }
 
-    setEstado(estado: string) {
+    setEstado(estado: String) {
         this.estado = estado;
     }
 
-    setComentario(comentario: string) {
+    setComentario(comentario: String) {
         this.comentario = comentario;
     }
 
-    saludar(): string {
+    saludar(): String {
         return this.materiaUngs;
     }
 }
