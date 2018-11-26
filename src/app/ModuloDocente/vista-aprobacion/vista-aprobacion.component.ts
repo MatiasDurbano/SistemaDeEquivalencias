@@ -88,14 +88,13 @@ export class VistaAprobacionComponent implements OnInit {
     if (this.aprobacion.value !== 'aprobado' && this.razon.invalid) {
       alert('Por favor, escriba una razon');
     } else {
-      this.solicitud.asignaturasUNGS[0].comentario=this.razon.value;
-      this.solicitud.asignaturasUNGS[0].estado=this.aprobacion.value;
+      this.solicitud.asignaturasUNGS[0].comentario = this.razon.value;
+      this.solicitud.asignaturasUNGS[0].estado = this.aprobacion.value;
       console.log(this.solicitud);
       this.serviceSolicitud.actualizarSolicitud(this.solicitud).subscribe(
-       Response=>{
+       Response => {
         console.log(Response);
        });
-      
     }
   }
 }

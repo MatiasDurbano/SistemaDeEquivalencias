@@ -12,9 +12,4 @@ export class Solicitud {
         this.asignaturasUNGS = asignaturasUNGS;
         this.estado = false;
     }
-
-    saludar(): string {
-        return `${this.alumno.saludar()}
-        ${this.asignaturasUNGS.length}`;
-    }
 }

@@ -22,16 +22,4 @@ export class Alumno {
             this.documentacion = documentacion;
             this.analitico = analitico;
     }
-
-    saludar(): string {
-        return `nombre: ${this.nombre},
-         apellido: ${this.apellido},
-         dni: ${this.dni},
-         legajo: ${this.legajo},
-         telefono: ${this.telefono},
-         email: ${this.email},
-         carrera: ${this.carrera}
-         documentacion: ${this.documentacion},
-         analitico: ${this.analitico}`;
-    }
 }

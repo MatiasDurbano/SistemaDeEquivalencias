@@ -57,7 +57,7 @@ export class FormularioAlumnoComponent implements OnInit {
   }
 
   saludar() {
-    console.log(this.generarAlumno().saludar());
+    console.log(this.generarAlumno());
   }
 
   leerArchivoDocumentacion(evt: any) {

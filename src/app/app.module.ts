@@ -46,6 +46,8 @@ import { DatosAlumnoComponent } from './ModuloConsulta/datos-alumno/datos-alumno
 import { CuerpoComponent } from './moduloVentanaPrincipal/cuerpo/cuerpo.component';
 import { VistaAsignacionAsignaturasComponent } from './ModuloAsignacionAsignaturas/vista-asignacion-asignaturas/vista-asignacion-asignaturas.component';
 import { VistaGeneralComponent } from './ModuloAdmin/vista-general/vista-general.component';
+import { VerTotalSolicitudesComponent } from './ModuloAdmin/ver-total-solicitudes/ver-total-solicitudes.component';
+import { VerDetallesComponent } from './ModuloAdmin/ver-detalles/ver-detalles.component';
 
 
 const routes: Routes = [
@@ -106,7 +108,9 @@ const routes: Routes = [
     DatosAlumnoComponent,
     CuerpoComponent,
     VistaAsignacionAsignaturasComponent,
-    VistaGeneralComponent
+    VistaGeneralComponent,
+    VerTotalSolicitudesComponent,
+    VerDetallesComponent
   ],
   imports: [
     BrowserModule,
