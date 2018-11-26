@@ -12,7 +12,7 @@ export class AsignaturasUNGS {
         this.estado = '';
         this.comentario = '';
     }
-
+/*
     setEstado(estado: String) {
         this.estado = estado;
     }
@@ -24,4 +24,5 @@ export class AsignaturasUNGS {
     saludar(): String {
         return this.materiaUngs;
     }
+*/
 }
