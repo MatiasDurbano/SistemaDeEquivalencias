@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { ListaMateria } from '../model/ListaMateria';
 import { CodigoAlumno } from '../ModuloConsulta/Clases/CodigoAlumno';
 import { Email } from '../model/Email';
+import { Solicitud } from '../ModuloSolicitud/clases/Solicitud';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,11 @@ export class SolicitudService {
   solicitarMateriasDocente(email: Email): Observable<any>
   {
     return this.http.post('/materiasDocente',email);
+  }
+
+  actualizarSolicitud(solicitud:Solicitud): Observable<any>
+  {
+    return this.http.post('/actualizarSolcitud',solicitud);
   }
 
 }

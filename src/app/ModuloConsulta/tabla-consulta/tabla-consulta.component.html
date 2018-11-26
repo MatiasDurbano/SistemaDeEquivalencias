@@ -23,12 +23,9 @@
           <h4>Estado de solicitud:</h4>
           <td><strong>Estado : </strong>{{element.estado}}</td>
           <div>
-            <td><strong>Comenario : </strong>{{element.coemntario}}</td>
+            <td><strong>Comenario : </strong>{{element.comentario}}</td>
           </div>
-        
-          <!--ACA-->
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-          (click)="getPlanDeEstudio(row)"></tr>
+       
 
         </div>
       </div>

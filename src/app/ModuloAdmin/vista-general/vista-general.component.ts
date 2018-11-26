@@ -24,13 +24,15 @@ export class VistaGeneralComponent implements OnInit {
 
   constructor(private serviceAdmin: AdminserviceService, private router: Router,private route: ActivatedRoute) { }
 
-  ngOnInit() {/* 
+  ngOnInit() {
     this.route.params.subscribe(params => {
       this.email = new Email(params['Email']);
     });
    this.buscarAdmin().then(result => {
-    console.log(result);
-    }); */
+    this.TraerSolicitudes();
+    }); 
+
+
   }
 
   buscarAdmin() {
@@ -43,6 +45,7 @@ export class VistaGeneralComponent implements OnInit {
         });
       });
   }
+
 
   verSeguimiento() {
     // this.router.navigate(['consulta']);
@@ -72,6 +75,15 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarDocente = true;
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = false;
+  }
+
+  TraerSolicitudes(){
+    this.serviceAdmin.traerSolicitudes(this.administrador.instituto).subscribe(
+      Response=>{
+        this.restResponse=Response;
+        console.log(this.restResponse);
+      }
+    )
   }
 
   salir() {
