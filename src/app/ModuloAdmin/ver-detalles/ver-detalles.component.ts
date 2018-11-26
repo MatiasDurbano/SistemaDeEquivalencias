@@ -4,6 +4,7 @@ import { AsignaturasUNGS } from 'src/app/ModuloSolicitud/clases/AsignaturasUNGS'
 import { AsignaturaEquivalente } from 'src/app/ModuloSolicitud/clases/AsignaturaEquivalente';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Aprobacion } from 'src/app/ModuloDocente/vista-aprobacion/vista-aprobacion.component';
+import { SolicitudService } from 'src/app/ServiceSolicitud/solicitud.service';
 
 @Component({
   selector: 'app-ver-detalles',
@@ -32,7 +33,7 @@ export class VerDetallesComponent implements OnInit {
     {value: 'coloquio', viewValue: 'Coloquio'}
   ];
 
-  constructor() { }
+  constructor(private serviceSolicitud: SolicitudService) { }
 
   ngOnInit() {
   }
@@ -55,6 +56,10 @@ export class VerDetallesComponent implements OnInit {
   modificar() {
     this.asignaturaSeleccionada.estado = this.formModificacion.get('estado').value;
     this.asignaturaSeleccionada.comentario = this.formModificacion.get('comentario').value;
+    this.serviceSolicitud.actualizarSolicitud(this.solicitud).subscribe(
+      Response => {
+       console.log(Response);
+      });
   }
 
 }

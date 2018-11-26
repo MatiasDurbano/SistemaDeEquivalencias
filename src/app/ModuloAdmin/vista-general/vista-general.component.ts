@@ -30,7 +30,6 @@ export class VistaGeneralComponent implements OnInit {
       this.email = new Email(params['Email']);
     });
    this.buscarAdmin().then(result => {
-    this.TraerSolicitudes();
     }); 
 
 
@@ -90,14 +89,6 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarAgregarAsignatura = false;
   }
 
-  TraerSolicitudes(){
-    this.serviceAdmin.traerSolicitudes(this.administrador.instituto).subscribe(
-      Response=>{
-        this.restResponse=Response;
-        console.log(this.restResponse);
-      }
-    )
-  }
 
   salir() {
     this.router.navigate(['']);
