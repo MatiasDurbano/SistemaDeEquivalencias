@@ -25,8 +25,8 @@ export class VerTotalSolicitudesComponent implements OnInit {
   solicitudes: Array<Solicitud>;
 
   selected = 0;
-  showtable = true;
-  showcargando = false;
+  showtable = false;
+  showcargando = true;
 
   restResponse: RestResponse;
 
