@@ -33,20 +33,26 @@ export class VerTotalSolicitudesComponent implements OnInit {
   @ViewChild(VerDetallesComponent) verDetalle: VerDetallesComponent;
 
   constructor(private serviceAdmin: AdminserviceService) {
-    this.datasourse = this.solicitudes;
   }
 
   ngOnInit() {
-    this.TraerSolicitudes();
+    this.TraerSolicitudes().then(resultado=>{
+      this.solicitudes=<Array<Solicitud>>resultado;
+      this.datasourse=this.solicitudes;
+      console.log(this.datasourse);
+    });
   }
+
   TraerSolicitudes(){
+    return new Promise((resultado) => {
     this.serviceAdmin.traerSolicitudes(this.instituto).subscribe(
       Response=>{
         this.restResponse=Response;
         console.log(this.restResponse);
-        this.solicitudes=<Array<Solicitud>>this.restResponse.message
-      }
-    )
+        resultado(this.restResponse.message)
+              });
+    });
+    
   }
   cargar(e: Solicitud) {
     console.log(e);
