@@ -36,10 +36,11 @@ restResponse: RestResponse;
   
   }
 
-  ngOnInit() {/* 
-    this.route.params.subscribe(params => {
+  ngOnInit() {
+    /*this.route.params.subscribe(params => {
       this.instituto=new Instituto(params['inst']);
-    }); */
+    });*/
+    console.log(this.instituto); 
     this.docenteService.traerDocentes(this.instituto).subscribe(
       Response =>{
         console.log("TRAIGO TODOS LOS DOCENTE");

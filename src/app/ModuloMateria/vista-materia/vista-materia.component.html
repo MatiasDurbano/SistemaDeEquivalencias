@@ -1,7 +1,7 @@
 <form [formGroup]="formCarrera">
-  <div class="selectCarrera">
+  <div class="selectCarrera" *ngIf="!mostrar">
     <mat-form-field class="campo">
-      <mat-select placeholder="Carrera"  (selectionChange)="cargar($event.value)" >
+      <mat-select placeholder="Carrera" (selectionChange)="cargar($event.value)" >
           <mat-option *ngFor="let Carrera of Carreras" [value]="Carrera.carrera" >
             {{Carrera.carrera}}
           </mat-option> 

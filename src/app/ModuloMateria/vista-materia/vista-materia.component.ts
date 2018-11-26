@@ -26,7 +26,7 @@ export class VistaMateriaComponent implements OnInit {
   prueba : string;
   plan: string = null;
   carreraMateria:CarreraMateria;
-
+  mostrar:boolean = true;
   restResponse: RestResponse;
 
   formCarrera: FormGroup = new FormGroup({
@@ -42,12 +42,24 @@ export class VistaMateriaComponent implements OnInit {
     private router: Router){}
 
   ngOnInit() {
-    this.materiaService.cargar(this.instituto).subscribe(
-      Response=>{
-        this.restResponse=Response;
-        this.Carreras=<Array<Carrera>>this.restResponse.message;
-      })
+    this.buscandoCarreras().then(result=>{
+      this.Carreras=<Array<Carrera>>result;
+      this.mostrar=false;;
+      
+      console.log(this.Carreras);
+    });
   }
+
+  buscandoCarreras(){
+    return new Promise((resultado) =>{
+      this.materiaService.cargar(this.instituto).subscribe(
+        Response=>{
+          this.restResponse=Response;
+          resultado(this.restResponse.message);
+          });
+      });
+  }
+
   cargar(event: any){
     this.limpiar();
     this.tablaMateria.vaciar();
