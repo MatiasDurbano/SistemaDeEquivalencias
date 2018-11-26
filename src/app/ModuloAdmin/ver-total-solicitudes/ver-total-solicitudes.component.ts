@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { MockSolicitudes, MockAlumno } from 'src/app/ModuloSolicitud/clases/Mock';
 import { VerDetallesComponent } from '../ver-detalles/ver-detalles.component';
+import { Administrador } from '../model/Administrador';
+import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-ver-total-solicitudes',
@@ -9,7 +12,8 @@ import { VerDetallesComponent } from '../ver-detalles/ver-detalles.component';
   styleUrls: ['./ver-total-solicitudes.component.css']
 })
 export class VerTotalSolicitudesComponent implements OnInit {
-
+  
+  @Input()administrador: Administrador;
   mockSolicitud: MockSolicitudes = new MockSolicitudes();
 
   //////////////////////////////////////////////////////////////////////////
@@ -17,23 +21,32 @@ export class VerTotalSolicitudesComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'carrera'];
   datasourse = new Array<Solicitud>();
 
+  solicitudes: Array<Solicitud>;
+
   selected = 0;
   showtable = true;
   showcargando = false;
 
+  restResponse: RestResponse;
+
   @ViewChild(VerDetallesComponent) verDetalle: VerDetallesComponent;
 
-  constructor() {
-    this.datasourse = [
-      this.mockSolicitud.solicitud1,
-      this.mockSolicitud.solicitud2,
-      this.mockSolicitud.solicitud3,
-    ];
+  constructor(private serviceAdmin: AdminserviceService) {
+    this.datasourse = this.solicitudes;
   }
 
   ngOnInit() {
+    this.TraerSolicitudes();
   }
-
+  TraerSolicitudes(){
+    this.serviceAdmin.traerSolicitudes(this.administrador.instituto).subscribe(
+      Response=>{
+        this.restResponse=Response;
+        console.log(this.restResponse);
+        this.solicitudes=<Array<Solicitud>>this.restResponse.message
+      }
+    )
+  }
   cargar(e: Solicitud) {
     console.log(e);
     this.verDetalle.cargarSolicitud(e);
