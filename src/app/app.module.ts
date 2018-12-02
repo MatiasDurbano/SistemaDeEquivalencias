@@ -48,6 +48,10 @@ import { VistaAsignacionAsignaturasComponent } from './ModuloAsignacionAsignatur
 import { VistaGeneralComponent } from './ModuloAdmin/vista-general/vista-general.component';
 import { VerTotalSolicitudesComponent } from './ModuloAdmin/ver-total-solicitudes/ver-total-solicitudes.component';
 import { VerDetallesComponent } from './ModuloAdmin/ver-detalles/ver-detalles.component';
+import { VistaGeneralSuperAdminComponent } from './ModuloSuperAdmin/vista-general-super-admin/vista-general-super-admin.component';
+import { VistaTotalSolicitudesSuperAdminComponent } from './ModuloSuperAdmin/vista-total-solicitudes-super-admin/vista-total-solicitudes-super-admin.component';
+import { VistaListadoAdminComponent } from './ModuloSuperAdmin/vista-listado-admin/vista-listado-admin.component';
+import { VistaAgregarAdminComponent } from './ModuloSuperAdmin/vista-agregar-admin/vista-agregar-admin.component';
 
 
 const routes: Routes = [
@@ -66,6 +70,7 @@ const routes: Routes = [
 {path: 'sesion-docente/:email', component: VistaSeleccionComponent},
 {path: 'VistaAsignacion/:instituto', component: VistaAsignacionAsignaturasComponent},
 {path: 'VistaAdmin/:usuario', component: VistaGeneralComponent},
+{path: 'VistaSuperAdmin', component: VistaGeneralSuperAdminComponent},
 {path: '', component: CuerpoComponent}
 ];
 
@@ -110,7 +115,11 @@ const routes: Routes = [
     VistaAsignacionAsignaturasComponent,
     VistaGeneralComponent,
     VerTotalSolicitudesComponent,
-    VerDetallesComponent
+    VerDetallesComponent,
+    VistaGeneralSuperAdminComponent,
+    VistaTotalSolicitudesSuperAdminComponent,
+    VistaListadoAdminComponent,
+    VistaAgregarAdminComponent,
   ],
   imports: [
     BrowserModule,

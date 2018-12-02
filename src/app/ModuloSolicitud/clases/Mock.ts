@@ -2,6 +2,7 @@ import { Alumno } from './Alumno';
 import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 import { AsignaturasUNGS } from './AsignaturasUNGS';
 import { Solicitud } from './Solicitud';
+import { Administrador } from 'src/app/ModuloAdmin/model/Administrador';
 
 export class MockSolicitudes {
 
@@ -132,5 +133,35 @@ export class MockAsignaturaUNGS {
         equivalencias: [this.mockAsignaturaEquivalente.asignaturaEquivalente1],
         estado: 'desaprobado',
         comentario: 'hola',
+    };
+}
+
+export class MockAdministrador {
+    administrador1: Administrador = {
+        nombre: 'Juan',
+        apellido: 'Perez',
+        email: 'juanPerez@sdas.com',
+        instituto: 'ICO'
+    };
+
+    administrador2: Administrador = {
+        nombre: 'Lucas',
+        apellido: 'Omar',
+        email: 'lucasOmar@sdas.com',
+        instituto: 'IDH'
+    };
+
+    administrador3: Administrador = {
+        nombre: 'Juanfer',
+        apellido: 'Quinter',
+        email: 'juanferQuinter@sdas.com',
+        instituto: 'ICI'
+    };
+
+    administrador4: Administrador = {
+        nombre: 'Lucian',
+        apellido: 'Aymar',
+        email: 'lucianAymar@sdas.com',
+        instituto: 'IDEI'
     };
 }

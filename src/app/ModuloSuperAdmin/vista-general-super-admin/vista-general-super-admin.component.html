@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menuSolicitud">Solicitud</button>
+    <mat-menu #menuSolicitud="matMenu">
+      <button mat-menu-item (click)="verTotalSolicitudes()">Ver solicitudes</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuAdmin">Admin</button>
+    <mat-menu #menuAdmin="matMenu">
+      <button mat-menu-item (click)="verListadoAdmin()">Listado de Admins</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div *ngIf="mostrarTotalSolicitudes else totalesSolicitudes "></div>
+<ng-template #totalesSolicitudes>
+  <div>
+    <app-vista-total-solicitudes-super-admin></app-vista-total-solicitudes-super-admin>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarListadoAdmin else listadoAdmin "></div>
+<ng-template #listadoAdmin>
+  <div>
+    <app-vista-listado-admin></app-vista-listado-admin>
+  </div>
+</ng-template>

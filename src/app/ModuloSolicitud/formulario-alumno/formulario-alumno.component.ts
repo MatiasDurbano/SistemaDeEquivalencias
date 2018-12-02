@@ -34,7 +34,7 @@ export class FormularioAlumnoComponent implements OnInit {
       Response => {
         this.institutosUNGS = Response;
       });
-/*     this.institutosUNGS = [{nombre: 'IDEI', carreras: ['Licenciatura en Sistemas']}]; */
+/*     this.institutosUNGS = [{nombre: 'IDEI', carreras: ['Tecnicatura Superior en Sistemas de informacion Geografica']}]; */
   }
 
   ngOnInit() {
