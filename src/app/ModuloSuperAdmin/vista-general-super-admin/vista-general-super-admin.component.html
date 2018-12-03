@@ -8,6 +8,10 @@
     <mat-menu #menuAdmin="matMenu">
       <button mat-menu-item (click)="verListadoAdmin()">Listado de Admins</button>
     </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menuInstituto">Instituto</button>
+    <mat-menu #menuInstituto="matMenu">
+      <button mat-menu-item (click)="verListadoInstitutos()">Listado de Institutos</button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -22,5 +26,12 @@
 <ng-template #listadoAdmin>
   <div>
     <app-vista-listado-admin></app-vista-listado-admin>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarListadoInstitutos else listadoInstitutos "></div>
+<ng-template #listadoInstitutos>
+  <div>
+    <app-vista-abinstituto></app-vista-abinstituto>
   </div>
 </ng-template>

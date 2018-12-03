@@ -12,6 +12,7 @@
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="menuInsituto">Insituto</button>
     <mat-menu #menuInsituto="matMenu">
+      <button mat-menu-item (click)="agregarCarreras()">Agregar Carreras</button>
       <button mat-menu-item (click)="agregarAsignaturas()">Agregar Asignaturas</button>
     </mat-menu>
     <button mat-button (click)=salir()>Salir</button>
@@ -50,5 +51,12 @@
 <ng-template #verSeguimientos>
   <div>
     <app-form-codigo [visible]="false"></app-form-codigo>
+  </div>
+</ng-template>
+
+<div *ngIf="mostrarAgregarCarreras else agregarCarrera "></div>
+<ng-template #agregarCarrera>
+  <div>
+    <app-abcarreras [instituto]="administrador.instituto"></app-abcarreras>
   </div>
 </ng-template>

@@ -22,6 +22,7 @@ export class VistaGeneralComponent implements OnInit {
   mostrarDocente = true;
   mostrarAsignarAsignatura = true;
   mostrarAgregarAsignatura = true;
+  mostrarAgregarCarreras = true;
 
   constructor(private serviceAdmin: AdminserviceService, private router: Router,private route: ActivatedRoute) { }
 
@@ -51,6 +52,7 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = true;
     this.mostrarVerSeguimiento = true;
+    this.mostrarAgregarCarreras = true;
     this.mostrarTotalAsignaturas = false;
   }
 
@@ -61,6 +63,7 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarDocente = true;
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = true;
+    this.mostrarAgregarCarreras = true;
     this.mostrarVerSeguimiento = false;
   }
 
@@ -69,6 +72,7 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarVerSeguimiento = true;
     this.mostrarAsignarAsignatura = true;
     this.mostrarAgregarAsignatura = true;
+    this.mostrarAgregarCarreras = true;
     this.mostrarDocente = false;
   }
 
@@ -77,7 +81,17 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarVerSeguimiento = true;
     this.mostrarDocente = true;
     this.mostrarAgregarAsignatura = true;
+    this.mostrarAgregarCarreras = true;
     this.mostrarAsignarAsignatura = false;
+  }
+
+  agregarCarreras() {
+    this.mostrarTotalAsignaturas = true;
+    this.mostrarVerSeguimiento = true;
+    this.mostrarDocente = true;
+    this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarAsignatura = true;
+    this.mostrarAgregarCarreras = false;
   }
 
   agregarAsignaturas() {
@@ -86,6 +100,7 @@ export class VistaGeneralComponent implements OnInit {
     this.mostrarVerSeguimiento = true;
     this.mostrarDocente = true;
     this.mostrarAsignarAsignatura = true;
+    this.mostrarAgregarCarreras = true;
     this.mostrarAgregarAsignatura = false;
   }
 
