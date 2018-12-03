@@ -62,5 +62,10 @@ export class AdminserviceService {
   return this.http.get('traerTodosInstitutos');
   }
 
+  borrarDocente(docente): any {
+  
+    return this.http.post('/borrarDocente',docente);
+  }
+
 
 }

@@ -34,4 +34,9 @@ guardarDocenteModificado(docente): any {
   return this.http.post('/actualizarDocente',docente);
 }
 
+borrarDocente(docente): any {
+  
+  return this.http.post('/borrarDocente',docente);
+}
+
 }

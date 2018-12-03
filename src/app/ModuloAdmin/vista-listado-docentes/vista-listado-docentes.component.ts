@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Docente } from 'src/app/ModuloSolicitud/clases/Docente';
 import { Instituto } from 'src/app/model/Instituto';
+import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
+import { DocenteserviceService } from 'src/app/ServiceDocente/docenteservice.service';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-vista-listado-docentes',
@@ -14,9 +17,16 @@ export class VistaListadoDocentesComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'apellido', 'email', 'eliminar'];
   datasourse = new Array<Docente>();
 
-  constructor() { }
+  restResponse: RestResponse=new RestResponse();
+  constructor(private serviceAdmin: AdminserviceService, private servideDocente: DocenteserviceService) { }
 
   ngOnInit() {
+    this.servideDocente.traerDocentes(this.instituto).subscribe(
+      Response=>{
+        console.log(Response);
+        this.restResponse=Response;
+        this.datasourse=<Array<Docente>>this.restResponse.message;
+      });
   }
 
   eliminar(docente: Docente) {
@@ -27,11 +37,11 @@ export class VistaListadoDocentesComponent implements OnInit {
         if (this.datasourse[item].email !== docente.email) {
           nuevo.push(this.datasourse[item]);
         } else {
-/*           this.serviceAdmin.borrar(this.datasourse[item]).subscribe(
+          this.serviceAdmin.borrarDocente(this.datasourse[item]).subscribe(
             Response=>{
               console.log(Response);
             }
-          ); */
+          ); 
         }
       }
       this.datasourse = nuevo;
