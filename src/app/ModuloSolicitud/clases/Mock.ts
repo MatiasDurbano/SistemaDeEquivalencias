@@ -165,3 +165,29 @@ export class MockAdministrador {
         instituto: 'IDEI'
     };
 }
+
+export class MockInstituto {
+    instituto1 = {
+        id: 0,
+        nombre: 'ICO',
+        disponible: 1
+    };
+
+    instituto2 = {
+        id: 0,
+        nombre: 'IDH',
+        disponible: 1
+    };
+
+    instituto3 = {
+        id: 0,
+        nombre: 'ICI',
+        disponible: 1
+    };
+
+    instituto4 = {
+        id: 0,
+        nombre: 'IDEI',
+        disponible: 1
+    };
+}

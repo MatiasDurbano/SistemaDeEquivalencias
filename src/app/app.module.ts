@@ -52,6 +52,7 @@ import { VistaGeneralSuperAdminComponent } from './ModuloSuperAdmin/vista-genera
 import { VistaTotalSolicitudesSuperAdminComponent } from './ModuloSuperAdmin/vista-total-solicitudes-super-admin/vista-total-solicitudes-super-admin.component';
 import { VistaListadoAdminComponent } from './ModuloSuperAdmin/vista-listado-admin/vista-listado-admin.component';
 import { VistaAgregarAdminComponent } from './ModuloSuperAdmin/vista-agregar-admin/vista-agregar-admin.component';
+import { VistaABInstitutoComponent } from './ModuloSuperAdmin/vista-abinstituto/vista-abinstituto.component';
 
 
 const routes: Routes = [
@@ -120,6 +121,7 @@ const routes: Routes = [
     VistaTotalSolicitudesSuperAdminComponent,
     VistaListadoAdminComponent,
     VistaAgregarAdminComponent,
+    VistaABInstitutoComponent,
   ],
   imports: [
     BrowserModule,
