@@ -3,6 +3,8 @@ import { AsignaturaEquivalente } from './AsignaturaEquivalente';
 import { AsignaturasUNGS } from './AsignaturasUNGS';
 import { Solicitud } from './Solicitud';
 import { Administrador } from 'src/app/ModuloAdmin/model/Administrador';
+import { CarreraUNGS } from 'src/app/ModuloAdmin/model/CarreraUNGS';
+import { Instituto } from 'src/app/model/Instituto';
 
 export class MockSolicitudes {
 
@@ -167,27 +169,53 @@ export class MockAdministrador {
 }
 
 export class MockInstituto {
-    instituto1 = {
+    instituto1: Instituto = {
         id: 0,
         nombre: 'ICO',
         disponible: 1
     };
 
-    instituto2 = {
+    instituto2: Instituto = {
         id: 0,
         nombre: 'IDH',
         disponible: 1
     };
 
-    instituto3 = {
+    instituto3: Instituto = {
         id: 0,
         nombre: 'ICI',
         disponible: 1
     };
 
-    instituto4 = {
+    instituto4: Instituto = {
         id: 0,
         nombre: 'IDEI',
+        disponible: 1
+    };
+}
+
+export class MockCarrera {
+    carrera1: CarreraUNGS = {
+        id: 0,
+        nombre: 'Licenciatura en Sistemas',
+        disponible: 1
+    };
+
+    carrera2: CarreraUNGS = {
+        id: 0,
+        nombre: 'Ingieneria Industrial',
+        disponible: 1
+    };
+
+    carrera3: CarreraUNGS = {
+        id: 0,
+        nombre: 'Profesorado Matematica',
+        disponible: 1
+    };
+
+    carrera4: CarreraUNGS = {
+        id: 0,
+        nombre: 'Profesorado Historia',
         disponible: 1
     };
 }
