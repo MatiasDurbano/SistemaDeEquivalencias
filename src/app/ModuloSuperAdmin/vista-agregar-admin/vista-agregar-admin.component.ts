@@ -51,7 +51,14 @@ export class VistaAgregarAdminComponent implements OnInit {
       console.log(nuevo);
       this.serviceAdmin.agregar(nuevo).subscribe(
       Response=>{
-        console.log(Response);
+        this.restResponse=Response;
+        if(this.restResponse.response==409){
+          alert('Usuario ya existente');
+        }
+        else{
+          alert('Agregado correctamente');
+          
+        }
       });
       
     } else {

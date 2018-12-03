@@ -2,6 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Instituto } from 'src/app/model/Instituto';
 import { CarreraUNGS } from '../model/CarreraUNGS';
 import { MockCarrera } from 'src/app/ModuloSolicitud/clases/Mock';
+import { CarreraPost } from '../model/CarreraPost';
+import { CarreraService } from 'src/app/ServiceCarrera/carrera.service';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-abcarreras',
@@ -23,13 +26,31 @@ export class ABCarrerasComponent implements OnInit {
 
   carrera: string;
 
-  constructor() {
-    this.datasourse = [this.mockCarrera.carrera1, this.mockCarrera.carrera2, this.mockCarrera.carrera3,
-      this.mockCarrera.carrera4];
-    this.estadoInicial = this.datasourse.concat();
+  restResponse: RestResponse= new RestResponse();
+  constructor(private carreraService :CarreraService) {
+    
   }
 
   ngOnInit() {
+
+  
+    this.obtenerCarreras().then(resultado=>{
+      this.datasourse = <Array<CarreraUNGS>> resultado;
+      this.estadoInicial=this.datasourse;
+    })
+
+    
+  
+  }
+
+  obtenerCarreras(){
+    return new Promise((resultado) => {
+      this.carreraService.buscarCarreraPorInstituto(this.instituto).subscribe(
+        Response=>{
+          this.restResponse=Response
+          resultado(this.restResponse.message);
+                });
+      });
   }
 
   eliminar(carrera: CarreraUNGS) {
@@ -83,8 +104,19 @@ export class ABCarrerasComponent implements OnInit {
         borrados.push({id: itemInicial.id, nombre: itemInicial.nombre, disponible: 0});
       }
     }
+    const carreras:CarreraPost=new CarreraPost();
+    carreras.carreras=agregados;
+    carreras.instituto=this.instituto;
+    console.log(carreras);
+    this.carreraService.guardarCarrera(carreras).subscribe(Response=>{
+      console.log(Response);
+    });
 
-    console.log(agregados);
+    carreras.carreras=borrados;
+    this.carreraService.borrarCarrera(carreras).subscribe(Response=>{
+      console.log(Response);
+    });
+    
     console.log(borrados);
   }
 

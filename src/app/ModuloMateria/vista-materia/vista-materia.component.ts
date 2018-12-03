@@ -86,8 +86,14 @@ export class VistaMateriaComponent implements OnInit {
 
   }
   guardar(){
-
-    this.carreraMateria=new CarreraMateria(this.instituto,this.Carreras);
+    var carreras:Array<Carrera> = new Array<Carrera>();
+    for(let carrera of this.Carreras){
+      if(carrera.carrera!=null){
+        carreras.push(carrera);
+      }
+    }
+    console.log(carreras);
+    this.carreraMateria=new CarreraMateria(this.instituto,carreras);
 
     this.materiaService.guardar(this.carreraMateria).subscribe(
       Response=>{

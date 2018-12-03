@@ -6,10 +6,27 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminserviceService {
+  
+  
+  agregarInstituto(agregados): Observable<any>
+  {
+  return this.http.post('agregarInstituto',agregados);
+  }
  
+
 
   constructor(private http: HttpClient) { }
 
+  borrarInstituto(borrados): Observable<any>
+  {
+  return this.http.post('borrarInstituto',borrados);
+  }
+
+  obtenerInstituto(): Observable<any>
+  {
+  return this.http.get('institutos');
+  }
+  
   traerAdmin(email): Observable<any>
   {
   return this.http.post('obtenerAdmin',email);

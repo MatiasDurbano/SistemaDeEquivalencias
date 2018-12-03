@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MockInstituto } from 'src/app/ModuloSolicitud/clases/Mock';
 import { Instituto } from 'src/app/model/Instituto';
+import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
+import { RestResponse } from 'src/app/model/RestResponse';
+import { InstitutoPost } from 'src/app/model/InstitutoPost';
 
 @Component({
   selector: 'app-vista-abinstituto',
@@ -19,16 +22,26 @@ export class VistaABInstitutoComponent implements OnInit {
   estadoInicial = new Array<Instituto>();
 
   instituto: string;
-
-  constructor() {
-    this.datasourse = [this.mockInstituto.instituto1, this.mockInstituto.instituto2, this.mockInstituto.instituto3,
-      this.mockInstituto.instituto4];
-    this.estadoInicial = this.datasourse.concat();
+  restResponse:RestResponse = new RestResponse();
+  constructor(private serviceAdmin: AdminserviceService) {
   }
 
   ngOnInit() {
+    this.obtenerInstituto().then(resultado=>{
+      this.datasourse =<Array<Instituto>> resultado;
+      this.estadoInicial = this.datasourse.concat();
+      
+    })
   }
-
+  obtenerInstituto(){
+    return new Promise((resultado) => {
+      this.serviceAdmin.traerTodosInstitutos().subscribe(
+        Response=>{
+          this.restResponse=Response
+          resultado(this.restResponse.message);
+                });
+      });
+    }
   eliminar(instituto: Instituto) {
     const nuevo = new Array<Instituto>();
     for (const item in this.datasourse) {
@@ -80,9 +93,20 @@ export class VistaABInstitutoComponent implements OnInit {
         borrados.push({id: itemInicial.id, nombre: itemInicial.nombre, disponible: 0});
       }
     }
-
-    console.log(agregados);
+    console.log(agregados)
+    const institutos: InstitutoPost= new InstitutoPost();
+    institutos.institutos=agregados;
+    this.serviceAdmin.agregarInstituto(institutos).subscribe(
+      Response=>{
+        console.log(Response);
+      });
+      
+    institutos.institutos=borrados;
     console.log(borrados);
+    this.serviceAdmin.borrarInstituto(institutos).subscribe(
+      Response=>{
+        console.log(Response);
+      });
   }
 
 }
