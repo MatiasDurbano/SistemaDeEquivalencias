@@ -54,6 +54,7 @@ import { VistaListadoAdminComponent } from './ModuloSuperAdmin/vista-listado-adm
 import { VistaAgregarAdminComponent } from './ModuloSuperAdmin/vista-agregar-admin/vista-agregar-admin.component';
 import { VistaABInstitutoComponent } from './ModuloSuperAdmin/vista-abinstituto/vista-abinstituto.component';
 import { ABCarrerasComponent } from './ModuloAdmin/abcarreras/abcarreras.component';
+import { VistaListadoDocentesComponent } from './ModuloAdmin/vista-listado-docentes/vista-listado-docentes.component';
 
 
 const routes: Routes = [
@@ -124,6 +125,7 @@ const routes: Routes = [
     VistaAgregarAdminComponent,
     VistaABInstitutoComponent,
     ABCarrerasComponent,
+    VistaListadoDocentesComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,7 +36,7 @@
 <div *ngIf="mostrarDocente else registrarDocentes "></div>
 <ng-template #registrarDocentes>
   <div>
-    <app-sign-in-docente></app-sign-in-docente>
+    <app-vista-listado-docentes [instituto]="administrador.instituto"></app-vista-listado-docentes>
   </div>
 </ng-template>
 
