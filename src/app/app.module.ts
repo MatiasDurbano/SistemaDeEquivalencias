@@ -72,8 +72,8 @@ const routes: Routes = [
 {path: 'sesion-docente/:email', component: VistaSeleccionComponent},
 {path: 'VistaAsignacion/:instituto', component: VistaAsignacionAsignaturasComponent},
 {path: 'VistaAdmin/:usuario', component: VistaGeneralComponent},
-{path: 'VistaSuperAdmin', component: VistaGeneralSuperAdminComponent},
-{path: '', component: CuerpoComponent}
+{path: '', component: VistaGeneralSuperAdminComponent},
+{path: 'VistaSuperAdmin', component: CuerpoComponent}
 ];
 
 

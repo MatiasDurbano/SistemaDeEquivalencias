@@ -1,12 +1,17 @@
-<div>
-  <mat-form-field>
-    <input matInput placeholder="Nombre" [(ngModel)]="carrera" required>
-  </mat-form-field>
+<div class="fila">
+  <h1>Listado Carreras</h1>
 </div>
-<div>
-  <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
+<div class="fila">
+  <div class="izq">
+    <mat-form-field>
+      <input matInput placeholder="Nombre" [(ngModel)]="carrera" required>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="agregar()">Agregar</button>
+  </div>
 </div>
-<div>
+<div class="fila">
   <table mat-table [dataSource]="datasourse" class="mat-elevation-z8">
       
     <ng-container matColumnDef="nombre">
@@ -24,6 +29,6 @@
     (click)="eliminar(row)"></tr>
   </table>
 </div>
-<div>
+<div class="fila">
   <button mat-raised-button color="primary" (click)="aplicarCambios()">Aplicar Cambios</button>
 </div>

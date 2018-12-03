@@ -1,3 +1,13 @@
 table {
     width: 100%;
 }
+
+.fila {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.izq {
+    margin-right: 5%;
+}
