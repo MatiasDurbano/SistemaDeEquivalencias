@@ -42,6 +42,9 @@ export class LoginComponent implements OnInit {
             }
             if(this.usuarioResponse.tipo==0){
               this.gotoAdmin(this.usuarioResponse);
+            }
+            if(this.usuarioResponse.tipo==3){
+              this.gotoSuperAdmin();
             }  
         }
         else{
@@ -56,5 +59,9 @@ export class LoginComponent implements OnInit {
 
   gotoDocente(user: UsuarioResponse){
     this.router.navigate(["sesion-docente/:email",{Email :user.email}]);
+  }
+  
+  gotoSuperAdmin(){
+    this.router.navigate(["VistaSuperAdmin"]);
   }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Administrador } from 'src/app/ModuloAdmin/model/Administrador';
+import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
+import { Instituto } from 'src/app/model/Instituto';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 export interface Opciones {
   viewValue: string;
@@ -23,16 +26,13 @@ export class VistaAgregarAdminComponent implements OnInit {
     contraseña: new FormControl('', Validators.required),
   });
 
-  institutos: Array<Opciones> = [
-    {viewValue: 'ICO', value: 'ico'},
-    {viewValue: 'IDH', value: 'idh'},
-    {viewValue: 'ICI', value: 'ici'},
-    {viewValue: 'IDEI', value: 'idei'}
-  ];
+  restResponse:RestResponse= new RestResponse();
+  institutos: Array<Instituto>;
 
-  constructor() { }
+  constructor(private serviceAdmin: AdminserviceService) { }
 
   ngOnInit() {
+    this.traerTodosInstitutos();
   }
 
   agregar() {
@@ -40,16 +40,31 @@ export class VistaAgregarAdminComponent implements OnInit {
     if (this.formAdmin.valid) {
       const nuevo: Administrador = new Administrador();
       nuevo.nombre = this.formAdmin.get('nombre').value;
-      nuevo.apellido = this.formAdmin.get('nombre').value;
-      nuevo.email = this.formAdmin.get('nombre').value;
-      nuevo.instituto = this.formAdmin.get('nombre').value;
+      nuevo.apellido = this.formAdmin.get('apellido').value;
+      nuevo.email = this.formAdmin.get('email').value;
+      nuevo.instituto = this.formAdmin.get('instituto').value;
 
       const usuario = this.formAdmin.get('usuario').value;
       const constraseña = this.formAdmin.get('contraseña').value;
-
-      location.reload();
+      nuevo.usuario=usuario;
+      nuevo.contraseña=constraseña;
+      console.log(nuevo);
+      this.serviceAdmin.agregar(nuevo).subscribe(
+      Response=>{
+        console.log(Response);
+      });
+      
     } else {
       alert('Algunos campos no fueron completados correctamente');
     }
+  }
+
+  traerTodosInstitutos(){
+    this.serviceAdmin.traerTodosInstitutos().subscribe(
+      Response=>{
+        console.log(Response);
+        this.restResponse=Response;
+        this.institutos=<Array<Instituto>>this.restResponse.message;
+      });
   }
 }

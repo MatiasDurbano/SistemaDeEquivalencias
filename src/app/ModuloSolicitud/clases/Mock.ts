@@ -141,27 +141,35 @@ export class MockAdministrador {
         nombre: 'Juan',
         apellido: 'Perez',
         email: 'juanPerez@sdas.com',
-        instituto: 'ICO'
+        instituto: 'ICO',
+        usuario:"asd",
+        contraseña:"dasd"
     };
 
     administrador2: Administrador = {
         nombre: 'Lucas',
         apellido: 'Omar',
         email: 'lucasOmar@sdas.com',
-        instituto: 'IDH'
+        instituto: 'IDH',
+        usuario:"asdddsa",
+        contraseña:"dasd"
     };
 
     administrador3: Administrador = {
         nombre: 'Juanfer',
         apellido: 'Quinter',
         email: 'juanferQuinter@sdas.com',
-        instituto: 'ICI'
+        instituto: 'ICI',
+        usuario:"asd",
+        contraseña:"dasd"
     };
 
     administrador4: Administrador = {
         nombre: 'Lucian',
         apellido: 'Aymar',
         email: 'lucianAymar@sdas.com',
-        instituto: 'IDEI'
+        instituto: 'IDEI',
+        usuario:"asd",
+        contraseña:"dasd"
     };
 }

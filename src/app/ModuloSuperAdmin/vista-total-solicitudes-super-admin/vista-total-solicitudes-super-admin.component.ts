@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Solicitud } from 'src/app/ModuloSolicitud/clases/Solicitud';
 import { VerDetallesComponent } from 'src/app/ModuloAdmin/ver-detalles/ver-detalles.component';
 import { MockSolicitudes } from 'src/app/ModuloSolicitud/clases/Mock';
+import { AdminserviceService } from 'src/app/ServiceAdmin/adminservice.service';
+import { RestResponse } from 'src/app/model/RestResponse';
 
 @Component({
   selector: 'app-vista-total-solicitudes-super-admin',
@@ -20,14 +22,21 @@ export class VistaTotalSolicitudesSuperAdminComponent implements OnInit {
   selected = 0;
   showtable = true;
   showcargando = false;
-
+  restResponse: RestResponse;
+  solicitudes: Array<Solicitud>;
   @ViewChild(VerDetallesComponent) verDetalle: VerDetallesComponent;
 
-  constructor() {
-    this.datasourse = [this.mockSolicitud.solicitud1, this.mockSolicitud.solicitud2, this.mockSolicitud.solicitud3];
+  constructor(private serviceAdmin: AdminserviceService) {
   }
 
   ngOnInit() {
+    this.TraerSolicitudes().then(resultado=>{
+      this.solicitudes=<Array<Solicitud>>resultado;
+      this.datasourse=this.solicitudes;
+      console.log(this.datasourse);
+      this.showtable = true;
+      this.showcargando = false;
+    });
   }
 
   cargar(e: Solicitud) {
@@ -36,4 +45,15 @@ export class VistaTotalSolicitudesSuperAdminComponent implements OnInit {
     this.selected = 1;
   }
 
+  TraerSolicitudes(){
+    return new Promise((resultado) => {
+    this.serviceAdmin.traerTodasSolicitudes().subscribe(
+      Response=>{
+        this.restResponse=Response;
+        console.log(this.restResponse);
+        resultado(this.restResponse.message)
+              });
+    });
+
+}
 }

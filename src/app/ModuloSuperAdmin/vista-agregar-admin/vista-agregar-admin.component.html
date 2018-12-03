@@ -31,8 +31,8 @@
     <div>
       <mat-form-field>
         <mat-select placeholder="Instituto" formControlName="instituto" required>
-          <mat-option *ngFor="let instituto of institutos" [value]="instituto.value">
-            {{instituto.viewValue}}
+          <mat-option *ngFor="let instituto of institutos" [value]="instituto.nombre">
+            {{instituto.nombre}}
           </mat-option>
         </mat-select>
       </mat-form-field>

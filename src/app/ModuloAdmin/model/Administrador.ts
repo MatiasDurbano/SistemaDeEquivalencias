@@ -4,6 +4,8 @@ export class Administrador{
     apellido:String;
     email:String;
     instituto:String; 
+    usuario:String;
+    contraseña:String;
 
     constructor(){}
 
