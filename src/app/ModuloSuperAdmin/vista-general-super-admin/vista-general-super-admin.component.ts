@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vista-general-super-admin',
@@ -11,7 +12,7 @@ export class VistaGeneralSuperAdminComponent implements OnInit {
   mostrarListadoAdmin = true;
   mostrarListadoInstitutos = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,10 @@ export class VistaGeneralSuperAdminComponent implements OnInit {
     this.mostrarTotalSolicitudes = true;
     this.mostrarListadoAdmin = true;
     this.mostrarListadoInstitutos = false;
+  }
+
+  salir() {
+    this.router.navigate(['']);
   }
 
 }

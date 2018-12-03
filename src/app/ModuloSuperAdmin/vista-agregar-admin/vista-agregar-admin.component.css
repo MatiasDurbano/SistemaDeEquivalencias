@@ -1,0 +1,21 @@
+.fila {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+input {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+}
+
+.contenedor {
+    width: 30%;
+}
+
+.contenido {
+    width: 100%;
+}
