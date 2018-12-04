@@ -13,7 +13,7 @@ import { RegistrodocentefooterComponent } from './VistasDocente/RegistroDocente/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuBarDocenteComponent } from './VistasDocente/menu-bar-docente/menu-bar-docente.component';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatStepperModule, MatInputModule, MatTabsModule } from '@angular/material';
-import { TablaDocenteComponent } from './VistasDocente/tabla-docente/tabla-docente.component';0
+import { TablaDocenteComponent } from './VistasDocente/tabla-docente/tabla-docente.component';
 import { SesionDocenteComponent } from './VistasDocente/sesion-docente/sesion-docente.component';
 import { FormMateriaEquivalenciaComponent } from './VistasAlumno/SolicitudEquivalencia/form-materia-equivalencia/form-materia-equivalencia.component';
 import { TablaMateriaEquivalenciaComponent } from './VistasAlumno/SolicitudEquivalencia/tabla-materia-equivalencia/tabla-materia-equivalencia.component';
@@ -21,14 +21,8 @@ import { TablaSeguimientoComponent } from './VistasAlumno/SeguimientoSolicitud/t
 import { FormMateriaDocenteComponent } from './VistasDocente/form-materia-docente/form-materia-docente.component';
 import { TablaMateriasDocenteComponent } from './VistasDocente/tabla-materias-docente/tabla-materias-docente.component';
 import {MaterialModule} from './materialConfig';
-import { CarrerasUNGSComponent } from './carreras-ungs/carreras-ungs.component';
-import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { LoginComponent } from './login/login.component';
-import { PasoApasoComponent } from './paso-apaso/paso-apaso.component';
 import { SignInDocenteComponent } from './sign-in-docente/sign-in-docente.component';
-import { VistaSolicitudEquivalenciaComponent } from './vista-solicitud-equivalencia/vista-solicitud-equivalencia.component';
-import { PropuestasSolicitudEquivalenciaComponent } from './vista-solicitud-equivalencia/propuestas-solicitud-equivalencia/propuestas-solicitud-equivalencia.component';
-import { TablaSolicitudEquivalenciaComponent } from './vista-solicitud-equivalencia/tabla-solicitud-equivalencia/tabla-solicitud-equivalencia.component';
 import { FormularioAlumnoComponent } from './ModuloSolicitud/formulario-alumno/formulario-alumno.component';
 import { FormularioEquivalenciaComponent } from './ModuloSolicitud/formulario-equivalencia/formulario-equivalencia.component';
 import { TablaAsignaturaEquivalenteComponent } from './ModuloSolicitud/tabla-asignatura-equivalente/tabla-asignatura-equivalente.component';
@@ -93,14 +87,8 @@ const routes: Routes = [
     TablaSeguimientoComponent,
     FormMateriaDocenteComponent,
     TablaMateriasDocenteComponent,
-    CarrerasUNGSComponent,
-    MenuPrincipalComponent,
     LoginComponent,
-    PasoApasoComponent,
     SignInDocenteComponent,
-    VistaSolicitudEquivalenciaComponent,
-    PropuestasSolicitudEquivalenciaComponent,
-    TablaSolicitudEquivalenciaComponent,
     FormularioAlumnoComponent,
     FormularioEquivalenciaComponent,
     TablaAsignaturaEquivalenteComponent,

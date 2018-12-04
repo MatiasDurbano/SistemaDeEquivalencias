@@ -11,3 +11,7 @@ table {
 .izq {
     margin-right: 5%;
 }
+
+.clickeable {
+    cursor: pointer;
+}
